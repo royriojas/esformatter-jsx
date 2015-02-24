@@ -2,7 +2,7 @@
 > esformatter plugin: ignore jsx blocks so the rest of the javascript code could be formatted without parsing errors
 
 [![NPM Version](http://img.shields.io/npm/v/esformatter-jsx-ignore.svg?style=flat)](https://npmjs.org/package/esformatter-jsx-ignore)
-[![Build Status](http://img.shields.io/travis/pgilad/esformatter-jsx-ignore.svg?style=flat)](https://travis-ci.org/royriojas/esformatter-jsx-ignore)
+[![Build Status](http://img.shields.io/travis/royriojas/esformatter-jsx-ignore.svg?style=flat)](https://travis-ci.org/royriojas/esformatter-jsx-ignore)
 
 **Esformatter-braces** is a plugin for [esformatter](https://github.com/millermedeiros/esformatter) meant to allow the
 code formatting of jsx files. This plugin basically will make esformatter to ignore the offending blocks (the jsx blocks)
