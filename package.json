@@ -1,0 +1,44 @@
+{
+  "name": "esformatter-jsx-ignore",
+  "version": "1.0.0",
+  "description": "esformatter plugin: ignore jsx blocks so the rest of the javascript code could be formatted",
+  "repository": "royriojas/esformatter-jsx-ignore",
+  "license": "MIT",
+  "author": {
+    "name": "Roy Riojas",
+    "url": "http://royriojas.com"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha -R spec test",
+    "watch": "mocha -R spec --watch test"
+  },
+  "keywords": [
+    "esformatter-plugin",
+    "esformatter",
+    "jsx",
+    "ignorejsx",
+    "react jsx",
+    "AST",
+    "esprima-fb",
+    "fresh-falafel",
+    "codestyle"
+  ],
+  "peerDependencies": {
+    "esprima-fb": "^12001.1.0-dev-harmony-fb"
+  },
+  "dependencies": {
+    "fresh-falafel": "^0.2.3"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "esformatter": "^0.4.3",
+    "mocha": "*"
+  }
+}
