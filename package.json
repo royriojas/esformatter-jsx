@@ -1,6 +1,6 @@
 {
   "name": "esformatter-jsx-ignore",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "esformatter plugin: ignore jsx blocks so the rest of the javascript code could be formatted",
   "repository": "royriojas/esformatter-jsx-ignore",
   "license": "MIT",

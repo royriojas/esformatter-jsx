@@ -60,7 +60,7 @@ Newest esformatter versions autoload plugins from your `node_modules` [See this]
 
 Add to your esformatter config file:
 
-In order for this to work, this plugin should be the first one! (I Know too picky, but who isn't)
+In order for this to work, this plugin should be the first one! (I Know too picky, but who isn't).
 
 ```json
 {
@@ -69,6 +69,8 @@ In order for this to work, this plugin should be the first one! (I Know too pick
   ]
 }
 ```
+**Note**: The previous syntax won't work because of [this issue](https://github.com/millermedeiros/esformatter/issues/245). 
+But registering it manually will work like a charm!
 
 Or you can manually register your plugin:
 ```js
