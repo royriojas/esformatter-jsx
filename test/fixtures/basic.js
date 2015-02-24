@@ -6,4 +6,4 @@ return <div className="hello-div">{this.props.message}</div>;
 }
 });
 
-React.render(<Hello message="world"/>, document.body);
+React.render(<Hello message="world"/>,      document.body);
