@@ -34,7 +34,8 @@
     "esprima-fb": "^12001.1.0-dev-harmony-fb"
   },
   "dependencies": {
-    "fresh-falafel": "^0.2.3"
+    "fresh-falafel": "^0.2.3",
+    "esprima-fb": "^12001.1.0-dev-harmony-fb"
   },
   "devDependencies": {
     "chai": "*",
