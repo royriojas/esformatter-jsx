@@ -58,7 +58,7 @@ Add to your esformatter config file:
 
 In order for this to work, this plugin should be the first one! (I Know too picky, but who isn't).
 
-```json
+```javascript
 {
   "plugins": [
     "esformatter-jsx"
