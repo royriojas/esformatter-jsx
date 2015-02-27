@@ -63,6 +63,7 @@ In order for this to work, this plugin should be the first one! (I Know too pick
   "plugins": [
     "esformatter-jsx"
   ],
+  // this is the section this plugin will use to store the settings for the jsx formatting
   "jsx": {
     "formatJSX": true, // by default is true if set to false it works the same as esformatter-jsx-ignore
     "htmlOptions": { // same as the ones passed to jsbeautifier.html 
