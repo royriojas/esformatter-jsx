@@ -1,6 +1,32 @@
 var falafel = require('fresh-falafel');
+var defaults = require('lodash.defaults');
 
 module.exports = {
+
+  setOptions: function (opts) {
+    opts = opts || {};
+
+    var jsxOptions = opts['jsx'] || {};
+
+   // if (jsxOptions) {
+    var me = this;
+    me.formatJSX = typeof jsxOptions.formatJSX === 'undefined' ? true: !!jsxOptions.formatJSX;
+    var htmlOptions = jsxOptions.htmlOptions || {};
+    me.htmlOptions = defaults(htmlOptions ,  {
+      brace_style: "collapse",
+      indent_char: " ",
+      //indentScripts: "keep",
+      indent_size: 2,
+      max_preserve_newlines: 2,
+      preserve_newlines: true
+      //indent_handlebars: true
+      //unformatted: ["a", "sub", "sup", "b", "i", "u" ],
+      //wrapLineLength: 0
+    });
+
+    //}
+  },
+
   _sections: [],
   stringBefore: function (code) {
     var me = this;
@@ -11,18 +37,19 @@ module.exports = {
     falafel.setParser(require('esprima-fb').parse);
 
     // parse the code
-    code = falafel(code, function (node) {
+    code = falafel(code,{ loc: true }, function (node) {
       // if a JSX node
       if (node.type === 'XJSElement' && node.parent.type !== 'XJSElement') {
         // save the source
-        sections.push(node.source());
+        var source = node.source();
+        sections.push( source );
         // replace it with a token like `void(0)/*$$$_XJS_ELEMENT_$$$*/`
         // the index is passed to void that way we can restore them later
         // we just want to temporary ignore those nodes because esformatter
         // does not play well yet with jsx syntax.
         // Actually rocambole already uses esprima-fb, but there is a bug in esprima-fb
-        // that will make very risky to use it in esformatter at this time. basically regex
-        // when formatter will produce duplicated results.
+        // that will make very risky to use it in esformatter at this time. basically if
+        // a regex expression is present in the file to be beautified it will be duplicated
         // Really sad, really lame. check:
         //
         // https://github.com/millermedeiros/esformatter/issues/242
@@ -43,7 +70,7 @@ module.exports = {
       return code;
     }
     // otherwise
-    return falafel(code, function (node) {
+    return falafel(code, { loc: true },function (node) {
       // check for the node we added, it should be an UnaryExpression, void and have the
       // custom comment we have included
       if (node.type === 'UnaryExpression' &&
@@ -53,7 +80,21 @@ module.exports = {
         // if it is a comment, get the argument passed
         var nodeIdx = parseInt(node.argument.source(), 10);
         // get the value from that node from the tokens we have stored before
-        node.update(sections[nodeIdx]);
+        var source = sections[nodeIdx];
+
+        if (me.formatJSX) {
+          var beautifier = require('js-beautify');
+          var first = false;
+          source = beautifier.html(source, me.htmlOptions).split('\n').map(function (line) {
+            if (!first) {
+              first = true;
+              return line;
+            }
+            var alingWith = (node.loc.start.column + 1);
+            return ((new Array(alingWith)).join(' ')) + line;
+          }).join('\n');
+        }
+        node.update(source);
       }
     }).toString();
   }

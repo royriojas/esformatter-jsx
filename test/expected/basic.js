@@ -6,4 +6,4 @@ var Hello = React.createClass({
   }
 });
 
-React.render(<Hello message="world"/>, document.body);
+React.render(<Hello message="world" />, document.body);

@@ -1,17 +1,15 @@
-# [esformatter](https://github.com/millermedeiros/esformatter)-jsx-ignore
-> esformatter plugin: ignore jsx blocks so the rest of the javascript code could be formatted without parsing errors
+# [esformatter](https://github.com/millermedeiros/esformatter)-jsx
+> esformatter plugin: format javascript files that contain React JSX blocks
 
-[![NPM Version](http://img.shields.io/npm/v/esformatter-jsx-ignore.svg?style=flat)](https://npmjs.org/package/esformatter-jsx-ignore)
-[![Build Status](http://img.shields.io/travis/royriojas/esformatter-jsx-ignore.svg?style=flat)](https://travis-ci.org/royriojas/esformatter-jsx-ignore)
+[![NPM Version](http://img.shields.io/npm/v/esformatter-jsx.svg?style=flat)](https://npmjs.org/package/esformatter-jsx)
+[![Build Status](http://img.shields.io/travis/royriojas/esformatter-jsx.svg?style=flat)](https://travis-ci.org/royriojas/esformatter-jsx)
 
-**Esformatter-jsx-ignore** is a plugin for [esformatter](https://github.com/millermedeiros/esformatter) meant to allow the
-code formatting of jsx files. This plugin basically will make esformatter to ignore the offending blocks (the jsx blocks)
-and let esformatter apply the magic on the rest of the file.
-
-**IMPORTANT**: This is a temporary solution until [esformatter](https://github.com/millermedeiros/esformatter) 
-supports jsx out of the box. It actually works, by just ignoring the jsx blocks and letting esformatter to work on the 
-rest of the code. It seems to be working, but I haven't test all possible scenarios. That said, it works for my main use case
-on very complex react components, so it might work for you too.
+**Esformatter-jsx** is a plugin for [esformatter](https://github.com/millermedeiros/esformatter) meant to allow the
+code formatting of jsx files or js files with React code blocks, using [js-beautify](https://www.npmjs.com/package/js-beautify) to 
+beautify the html like syntax of the react components. **Use at your own risk**. I have tested this against complex JSX structures 
+and seems to be workfing fine, but bugs might appear, so don't blame me :). It works for my main use case and I hope it works for you too.
+ 
+This plugin is based on [esformatter-jsx-ignore](https://github.com/royriojas/esformatter-jsx-ignore)
 
 If you want a bit of history about what this plugin was develop, check: 
 - https://github.com/millermedeiros/esformatter/issues/242
@@ -23,11 +21,14 @@ var React = require('react');
 
 var Hello = React.createClass({
 render: function () {
-return <div className="hello-div">{this.props.message}</div>;
+return <div 
+
+className="hello-div">{this.props.message}</div>;
 }
 });
 
-React.render(<Hello message="world"/>,      document.body);
+React.render(<Hello 
+message="world"/>,      document.body);
 ```
 
 into:
@@ -43,15 +44,10 @@ var Hello = React.createClass({
 React.render(<Hello message="world"/>, document.body);
 ```
 
-## Future Goals
-
-- Try to apply some formatting to the actual jsx nodes, instead of blindly ignore them
-- Render this plugin obsolete when esformatter support this out of the box. Check: https://github.com/millermedeiros/esformatter/issues/242
-
 ## Installation
 
 ```sh
-$ npm install esformatter-jsx-ignore --save-dev
+$ npm install esformatter-jsx --save-dev
 ```
 
 ## Config
@@ -65,17 +61,31 @@ In order for this to work, this plugin should be the first one! (I Know too pick
 ```json
 {
   "plugins": [
-    "esformatter-jsx-ignore"
-  ]
+    "esformatter-jsx"
+  ],
+  "jsx": {
+    "formatJSX": true, // by default is true if set to false it works the same as esformatter-jsx-ignore
+    "htmlOptions": { // same as the ones passed to jsbeautifier.html 
+      "brace_style": "collapse",
+      "indent_char": " ",
+      //indentScripts: "keep",
+      "indent_size": 2,
+      "max_preserve_newlines": 2,
+      "preserve_newlines": true
+      //unformatted: ["a", "sub", "sup", "b", "i", "u" ],
+      //wrapLineLength: 0
+    }
+  }
 }
 ```
-**Note**: The previous syntax won't work because of [this issue](https://github.com/millermedeiros/esformatter/issues/245). 
-But registering it manually will work like a charm!
+
+The `htmlOptions` are passed directly to [js-beautify](https://www.npmjs.com/package/js-beautify), please check his
+documentation for all the possible options.
 
 Or you can manually register your plugin:
 ```js
 // register plugin
-esformatter.register(require('esformatter-jsx-ignore'));
+esformatter.register(require('esformatter-jsx'));
 ```
 
 ## Usage
@@ -84,11 +94,11 @@ esformatter.register(require('esformatter-jsx-ignore'));
 var fs = require('fs');
 var esformatter = require('esformatter');
 //register plugin manually
-esformatter.register(require('esformatter-jsx-ignore'));
+esformatter.register(require('esformatter-jsx'));
 
 var str = fs.readFileSync('someKewlFile.js').toString();
 var output = esformatter.format(str);
-//-> output will now contain the formatted code, allowing the jsx nodes to happily pass.
+//-> output will now contain the formatted code 
 ```
 
 See [esformatter](https://github.com/millermedeiros/esformatter) for more options and further usage.

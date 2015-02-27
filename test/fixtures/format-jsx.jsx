@@ -1,7 +1,6 @@
 var Cards = React.createClass({
   getInitialState: function() {
-    return {
-      allToggled: false
+    return { allToggled: false
     };
   },
   onToggled: function(cardId, state) {
@@ -16,7 +15,7 @@ var Cards = React.createClass({
       return prev && card.toggled;
     }, true);
 
-    console.log('>>>cards', this.props.cards, allToggled);
+    console.log('>>>cards',this.props.cards, allToggled);
 
     this.setState({
       allToggled: allToggled
@@ -34,20 +33,31 @@ var Cards = React.createClass({
         left: card.id * 310
       };
 
-      return <Card card={card} key={card.id} pos={pos} onToggled={me.onToggled} />;
+      return <Card
+card={card}
+      key={card.id}
+
+
+      pos={pos}
+
+      onToggled={me.onToggled}
+/>;
     });
+    var dataProps = {
+      'data-some-val': 1
+    };
     return <div>
-             <div className="message">
-               <p> Lo que te voy a decir no es un secreto...
-                 <br /> Pero igual deberás descubrirlo </p>
-             </div>
-             <div className="stage">
-               {cards}
-             </div>
-             <div className={footerClass}>
-               <p> Y no me cansaré de repetírtelo...
-                 <br /> Me haces muy feliz! </p>
-             </div>
-           </div>;
+<div
+      className="message" {...dataProps} >
+  <p> Lo que te voy a decir no es un secreto...<br />
+        Pero igual deberás descubrirlo </p>
+  </div>
+      <div className="stage">
+      {cards}
+      </div>
+<div className={footerClass}    >
+        <p>          Y no me cansaré de repetírtelo... <br />       Me haces muy feliz! </p>
+      </div>
+</div>;
   }
 });

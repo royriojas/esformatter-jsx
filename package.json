@@ -1,8 +1,8 @@
 {
-  "name": "esformatter-jsx-ignore",
-  "version": "1.0.5",
-  "description": "esformatter plugin: ignore jsx blocks so the rest of the javascript code could be formatted",
-  "repository": "royriojas/esformatter-jsx-ignore",
+  "name": "esformatter-jsx",
+  "version": "1.0.0",
+  "description": "esformatter plugin: format javascript files that contain React JSX blocks",
+  "repository": "royriojas/esformatter-jsx",
   "license": "MIT",
   "author": {
     "name": "Roy Riojas",
@@ -23,23 +23,25 @@
     "esformatter-plugin",
     "esformatter",
     "jsx",
-    "ignorejsx",
     "react jsx",
     "AST",
     "esprima-fb",
     "fresh-falafel",
-    "codestyle"
+    "codestyle",
+    "react jsx"
   ],
   "peerDependencies": {
     "esprima-fb": "^12001.1.0-dev-harmony-fb"
   },
   "dependencies": {
     "esprima-fb": "^12001.1.0-dev-harmony-fb",
-    "fresh-falafel": "^0.2.6"
+    "fresh-falafel": "^0.2.6",
+    "js-beautify": "^1.5.4",
+    "lodash.defaults": "^3.0.0"
   },
   "devDependencies": {
     "chai": "*",
-    "esformatter": "^0.4.3",
+    "esformatter": "^0.5.0",
     "mocha": "*"
   }
 }

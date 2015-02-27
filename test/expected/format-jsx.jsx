@@ -36,8 +36,11 @@ var Cards = React.createClass({
 
       return <Card card={card} key={card.id} pos={pos} onToggled={me.onToggled} />;
     });
+    var dataProps = {
+      'data-some-val': 1
+    };
     return <div>
-             <div className="message">
+             <div className="message" {...dataProps}>
                <p> Lo que te voy a decir no es un secreto...
                  <br /> Pero igual deberás descubrirlo </p>
              </div>
