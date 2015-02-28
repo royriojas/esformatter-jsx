@@ -4,6 +4,12 @@
 [![NPM Version](http://img.shields.io/npm/v/esformatter-jsx.svg?style=flat)](https://npmjs.org/package/esformatter-jsx)
 [![Build Status](http://img.shields.io/travis/royriojas/esformatter-jsx.svg?style=flat)](https://travis-ci.org/royriojas/esformatter-jsx)
 
+## Demo
+
+Live demo: http://requirebin.com/embed?gist=0d67452e01754269660f
+
+## Overview
+
 **Esformatter-jsx** is a plugin for [esformatter](https://github.com/millermedeiros/esformatter) meant to allow the
 code formatting of jsx files or js files with React code blocks, using [js-beautify](https://www.npmjs.com/package/js-beautify) to 
 beautify the html like syntax of the react components. **Use at your own risk**. I have tested this against complex JSX structures 
