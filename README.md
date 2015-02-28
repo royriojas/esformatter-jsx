@@ -6,7 +6,7 @@
 
 ## Demo
 
-Live demo: http://requirebin.com/embed?gist=0d67452e01754269660f
+Live demo: [esformatter-jsx](http://requirebin.com/embed?gist=0d67452e01754269660f)
 
 ## Overview
 
