@@ -30,9 +30,9 @@ module.exports = {
       //indentScripts: "keep",
       indent_size: 2,
       max_preserve_newlines: 2,
-      preserve_newlines: true
+      preserve_newlines: true,
       //indent_handlebars: true
-      //unformatted: ["a", "sub", "sup", "b", "i", "u" ],
+      unformatted: ['a', 'span', 'img', 'bdo', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'q', 'sub', 'sup', 'tt', 'i', 'b', 'big', 'small', 'u', 's', 'strike', 'font', 'ins', 'del', 'pre', 'address', 'dt', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']
       //wrapLineLength: 0
     });
 
@@ -71,12 +71,26 @@ module.exports = {
     return code.toString();
   },
 
+  _keepUnformatted: function (tag) {
+    var me = this;
+    var unformatted = me.htmlOptions.unformatted || [];
+
+    return unformatted.indexOf(tag) > -1;
+  },
+
   _prepareToProcessTags: function (source) {
+    var me = this;
     var code = falafel(source, { loc: true }, function (node) {
-      if (node.type === 'JSXElement') {
+      if (node.type === 'JSXElement' && !node.selfClosing) {
         if (node.children && node.children.length > 0) {
-          node.openingElement.update(node.openingElement.source() + '\n');
-          node.closingElement.update('\n' +node.closingElement.source());
+          if (!me._keepUnformatted(node.openingElement.name.name)) {
+            node.openingElement.update(node.openingElement.source() + '\n');
+            node.closingElement.update('\n' +node.closingElement.source());
+          }
+          else {
+            var nSource = node.source().replace(/\n/g, ' ').replace(/\s+/g, ' ');
+            node.update(nSource);
+          }
         }
       }
     });

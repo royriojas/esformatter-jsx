@@ -2,10 +2,12 @@ var React = require('react');
 
 var Hello = React.createClass({
 render: function () {
-return <div><div
+return <div><h2
 
 className="hello-div"
->{this.props.message}</div></div>;
+>
+  {this.props.message}
+</h2></div>;
 }
 });
 
