@@ -8,6 +8,32 @@
 
 Live demo: [esformatter-jsx](http://requirebin.com/embed?gist=0d67452e01754269660f)
 
+## Notes
+
+If you're running into troubles with the formatting applied to your files I found this configuration to work the best:
+
+```json
+{
+  "jsx": {
+    "formatJSX": true, //Duh! that's the deafault
+    "attrsOnSameLineAsTag": false, // move each attribute to its own line
+    "maxAttrsOnTag": 3, // if lower or equal than 3 attributes, they will be kept on a single line
+    "firstAttributeOnSameLine": true, // keep the first attribute in the same line as the tag
+    "alignWithFirstAttribute": false, // do not align attributes with the first tag
+    "htmlOptions": {
+      "unformatted": [] // let's format all tags, the default in `js-beautify.html` is to leave unformatted a lot of tags
+                        // which sometimes will not work fine with all jsx structures. By forcing the formatting of all tags
+                        // this will prevent the introduction of undesired spans in the generated output
+                        // 
+                        // example: 
+                        // <a><span>Some</span></a> // this is ok
+                        // <a> <span>Some</span> </a> // this is not ok. React will generate extra spans for the 
+                        // the empty space characters around the span.
+    }
+  }
+}
+```
+
 ## Overview
 
 **Esformatter-jsx** is a plugin for [esformatter](https://github.com/millermedeiros/esformatter) meant to allow the
