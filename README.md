@@ -81,7 +81,7 @@ In order for this to work, this plugin should be the first one! (I Know too pick
     "maxAttrsOnTag": 1, 
     // if the attributes are going to be put each one on its own line, then keep the first 
     // on the same line as the open tag
-    firstAttributeOnSameLine: false,
+    "firstAttributeOnSameLine": false,
     // align the attributes with the first attribute (if the first attribute was kept on the same line as on the open tag)
     "alignWithFirstAttribute": true,  
     "htmlOptions": { // same as the ones passed to jsbeautifier.html 
