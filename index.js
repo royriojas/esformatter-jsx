@@ -145,7 +145,9 @@ module.exports = {
           var beautifier = require('js-beautify');
           var first = false;
 
-          source = me._prepareToProcessTags(source);
+          if (!jsxOptions.attrsOnSameLineAsTag) {
+            source = me._prepareToProcessTags(source);
+          }
 
           source = beautifier.html(source, me.htmlOptions);
 
