@@ -71,7 +71,19 @@ In order for this to work, this plugin should be the first one! (I Know too pick
   ],
   // this is the section this plugin will use to store the settings for the jsx formatting
   "jsx": {
-    "formatJSX": true, // by default is true if set to false it works the same as esformatter-jsx-ignore
+    // by default is true if set to false it works the same as esformatter-jsx-ignore
+    "formatJSX": true, 
+    // keep the node attributes on the same line as the open tag. Default is true. 
+    // Setting this to false will put each one of the attributes on a single line
+    "attrsOnSameLineAsTag": true,
+     // how many attributes should the node have before having to put each 
+     // attribute in a new line. Default 1
+    "maxAttrsOnTag": 1, 
+    // if the attributes are going to be put each one on its own line, then keep the first 
+    // on the same line as the open tag
+    firstAttributeOnSameLine: false,
+    // align the attributes with the first attribute (if the first attribute was kept on the same line as on the open tag)
+    "alignWithFirstAttribute": true,  
     "htmlOptions": { // same as the ones passed to jsbeautifier.html 
       "brace_style": "collapse",
       "indent_char": " ",

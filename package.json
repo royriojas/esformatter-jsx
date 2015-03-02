@@ -1,6 +1,6 @@
 {
   "name": "esformatter-jsx",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "esformatter plugin: format javascript files that contain React JSX blocks",
   "repository": "royriojas/esformatter-jsx",
   "license": "MIT",
@@ -30,11 +30,9 @@
     "codestyle",
     "react jsx"
   ],
-  "peerDependencies": {
-    "esprima-fb": "^12001.1.0-dev-harmony-fb"
-  },
+  "peerDependencies": {},
   "dependencies": {
-    "esprima-fb": "^12001.1.0-dev-harmony-fb",
+    "esprima-fb": "^13001.1.0-dev-harmony-fb",
     "fresh-falafel": "^0.2.6",
     "js-beautify": "^1.5.4",
     "lodash.defaults": "^3.0.0"

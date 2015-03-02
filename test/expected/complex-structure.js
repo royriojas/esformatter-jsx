@@ -38,15 +38,19 @@ var Cards = React.createClass({
     });
     return <div>
              <div className="message">
-               <p> Lo que te voy a decir no es un secreto...
-                 <br /> Pero igual deberás descubrirlo </p>
+               <p>
+                 Lo que te voy a decir no es un secreto...
+                 <br /> Pero igual deberás descubrirlo
+               </p>
              </div>
              <div className="stage">
                {cards}
              </div>
              <div className={footerClass}>
-               <p> Y no me cansaré de repetírtelo...
-                 <br /> Me haces muy feliz! </p>
+               <p>
+                 Y no me cansaré de repetírtelo...
+                 <br /> Me haces muy feliz!
+               </p>
              </div>
            </div>;
   }

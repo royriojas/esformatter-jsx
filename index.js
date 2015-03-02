@@ -1,16 +1,28 @@
 var falafel = require('fresh-falafel');
 var defaults = require('lodash.defaults');
+// inject esprima to fresh-falafel
+falafel.setParser(require('esprima-fb').parse);
 
 module.exports = {
 
   setOptions: function (opts) {
+    var me = this;
     opts = opts || {};
 
     var jsxOptions = opts['jsx'] || {};
 
-   // if (jsxOptions) {
-    var me = this;
-    me.formatJSX = typeof jsxOptions.formatJSX === 'undefined' ? true: !!jsxOptions.formatJSX;
+    me.jsxOptions = defaults(jsxOptions, {
+      formatJSX: true,
+      attrsOnSameLineAsTag: true,
+      maxAttrsOnTag: null,
+      firstAttributeOnSameLine: false,
+      alignWithFirstAttribute: true
+    });
+
+    if (me.jsxOptions.maxAttrsOnTag < 1) {
+      me.jsxOptions.maxAttrsOnTag = 1;
+    }
+
     var htmlOptions = jsxOptions.htmlOptions || {};
     me.htmlOptions = defaults(htmlOptions ,  {
       brace_style: "collapse",
@@ -33,13 +45,10 @@ module.exports = {
     // array of found jsx sections
     var sections = me._sections = [];
 
-    // inject esprima to fresh-falafel
-    falafel.setParser(require('esprima-fb').parse);
-
     // parse the code
     code = falafel(code,{ loc: true }, function (node) {
       // if a JSX node
-      if (node.type === 'XJSElement' && node.parent.type !== 'XJSElement') {
+      if (node.type === 'JSXElement' && node.parent.type !== 'JSXElement') {
         // save the source
         var source = node.source();
         sections.push( source );
@@ -61,6 +70,54 @@ module.exports = {
 
     return code.toString();
   },
+
+  _prepareToProcessTags: function (source) {
+    var code = falafel(source, { loc: true }, function (node) {
+      if (node.type === 'JSXElement') {
+        if (node.children && node.children.length > 0) {
+          node.openingElement.update(node.openingElement.source() + '\n');
+          node.closingElement.update('\n' +node.closingElement.source());
+        }
+      }
+    });
+    return this._removeEmptyLines(code.toString());
+  },
+
+  _removeEmptyLines: function (code) {
+    return code.split('\n').filter(function (line) {
+      return (line.trim() !== '');
+    }).join('\n');
+  },
+
+  _operateOnOpenTags: function (source) {
+    var me = this;
+    var code = falafel(source, { loc: true }, function (node) {
+      if (node.type === 'JSXOpeningElement') {
+        if (node.attributes && node.attributes.length > (me.jsxOptions.maxAttrsOnTag || 0)) {
+          var first = node.attributes[0];
+          var firstAttributeInSameLine = me.jsxOptions.firstAttributeOnSameLine;
+
+          var alignWith = me.jsxOptions.alignWithFirstAttribute ? first.loc.start.column + 1 : node.loc.start.column + 3;
+          var tabPrefix = (new Array(alignWith)).join(' ');
+
+
+          var index = 0;
+          node.attributes.forEach(function (cNode) {
+            index++;
+            if (firstAttributeInSameLine && index === 1) {
+              //first = false;
+              return cNode;
+            }
+
+            cNode.update('\n'+ tabPrefix + cNode.source());
+          });
+        }
+      }
+    });
+
+    return code.toString();
+  },
+
   stringAfter: function (code) {
     var me = this;
     var sections = me._sections || [];
@@ -82,10 +139,22 @@ module.exports = {
         // get the value from that node from the tokens we have stored before
         var source = sections[nodeIdx];
 
-        if (me.formatJSX) {
+        var jsxOptions = me.jsxOptions;
+
+        if (jsxOptions.formatJSX) {
           var beautifier = require('js-beautify');
           var first = false;
-          source = beautifier.html(source, me.htmlOptions).split('\n').map(function (line) {
+
+          source = me._prepareToProcessTags(source);
+
+          source = beautifier.html(source, me.htmlOptions);
+
+          if ( !jsxOptions.attrsOnSameLineAsTag ) {
+            source = me._operateOnOpenTags(source);
+          }
+
+          source = me._removeEmptyLines(source).split('\n').map(function (line) {
+            line = line.replace(/\s+$/g, '');
             if (!first) {
               first = true;
               return line;
