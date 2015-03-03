@@ -12,7 +12,7 @@ Live demo: [esformatter-jsx](http://requirebin.com/embed?gist=0d67452e0175426966
 
 If you're running into troubles with the formatting applied to your files I found this configuration to work the best:
 
-```json
+```javascript
 {
   "jsx": {
     "formatJSX": true, //Duh! that's the deafault
