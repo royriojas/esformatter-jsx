@@ -10,6 +10,45 @@ Live demo: [esformatter-jsx](http://requirebin.com/embed?gist=0d67452e0175426966
 
 ## Notes
 
+### Nested jsx elements and ternary operators
+
+The following construct will be a bit problematic
+```javascript
+return <div>
+  { this.state.allSaved ? <div> some content </div> : null }
+</div>;
+```
+
+this will be beautified as 
+
+```javascript
+return <div>
+         { this.state.allSaved ? 
+         <div> all Saved! </div> : null }
+       </div>;
+```
+
+Where possible try to assign that content from outside and use something like this
+
+```javascript
+var allSaved =  this.state.allSaved ? <div>All Saved!</div> : null;
+return <div>
+  {allSaved}
+</div>
+```
+
+The previous will be beautified as 
+```javascript
+var allSaved =  this.state.allSaved ? <div>All Saved!</div> : null;
+return <div>
+         {allSaved}
+       </div>
+```
+
+Which IMHO looks better.
+
+### best configuration
+
 If you're running into troubles with the formatting applied to your files I found this configuration to work the best:
 
 ```javascript

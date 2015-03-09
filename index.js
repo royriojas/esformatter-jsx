@@ -3,6 +3,16 @@ var defaults = require('lodash.defaults');
 // inject esprima to fresh-falafel
 falafel.setParser(require('esprima-fb').parse);
 
+function hasXJSElementAsParent( node ) {
+  while ( node.parent ) {
+    if ( node.parent.type === 'JSXElement' ) {
+      return true;
+    }
+    node = node.parent;
+  }
+  return false;
+}
+
 module.exports = {
 
   setOptions: function (opts) {
@@ -48,7 +58,7 @@ module.exports = {
     // parse the code
     code = falafel(code,{ loc: true }, function (node) {
       // if a JSX node
-      if (node.type === 'JSXElement' && node.parent.type !== 'JSXElement') {
+      if (node.type === 'JSXElement' && !hasXJSElementAsParent(node)) {
         // save the source
         var source = node.source();
         sections.push( source );

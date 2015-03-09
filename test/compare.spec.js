@@ -28,12 +28,12 @@ var readJSONSync = function (folder, name) {
 
 
 
-describe('esformatter-ignorejsx', function () {
+describe('esformatter-jsx', function () {
   before(function () {
     esformatter.register(plugin);
   });
 
-  describe('should ignore jsx blocks and properly format the rest of the code', function () {
+  describe('format jsx blocks', function () {
     var files = fs.readdirSync('./test/fixtures/');
 
 //    files = files.filter(function (file) {

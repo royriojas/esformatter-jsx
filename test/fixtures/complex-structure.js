@@ -41,6 +41,7 @@ return <Card card={card} key={card.id} pos={pos} onToggled={me.onToggled} />;
         <p> Lo que te voy a decir no es un secreto...
           <br />
         Pero igual deberás descubrirlo </p>
+        { this.state.allToggled ? <div>All Toggled</div> : null }
       </div>
       <div className="stage">
         {cards}
