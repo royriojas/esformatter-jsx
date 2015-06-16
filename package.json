@@ -16,8 +16,17 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "mocha -R spec test",
-    "watch": "mocha -R spec --watch test"
+    "beautify": "esbeautifier index.js 'specs/**/*.js'",
+    "beautify-check": "esbeautifier -k index.js 'specs/**/*.js'",
+    "eslint": "./bin/cli.js index.js 'specs/**/*.js'",
+    "test": "mocha-runner 'specs/**/*.js'",
+    "cover": "istanbul cover -x 'specs/**/*.js' mocha-runner 'specs/**/*.js' html text-summary",
+    "watch": "npm run cover && watch-spawn -p 'specs/**/*.js' -p 'index.js' -p  npm run cover",
+    "lint": "npm run beautify && npm run eslint && npm test",
+    "check": "npm run beautify-check && npm run eslint && npm test",
+    "changelog": "changelogx -f markdown -o ./changelog.md",
+    "install-hooks": "prepush install && changelogx install-hook",
+    "bump": "bumpery --versionType=patch && npm run changelog && git add changelog.md && git commit -m 'DOC: Generate changelog'"
   },
   "keywords": [
     "esformatter-plugin",
@@ -38,9 +47,17 @@
     "lodash.defaults": "^3.0.0"
   },
   "devDependencies": {
+    "bumpery": "^1.0.7",
     "chai": "*",
+    "changelogx": "^1.0.13",
+    "esbeautifier": "^2.0.5",
     "esformatter": "^0.5.0",
-    "mocha": "*",
-    "read-json-sync": "^1.1.0"
+    "eslinter": "^2.0.1",
+    "istanbul": "^0.3.15",
+    "mocha-runner": "^1.0.8",
+    "prepush": "^2.0.4",
+    "proxyquire": "^1.5.0",
+    "read-json-sync": "^1.1.0",
+    "watch-spawn": "^1.0.3"
   }
 }

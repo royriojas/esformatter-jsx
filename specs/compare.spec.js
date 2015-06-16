@@ -43,9 +43,9 @@ describe('esformatter-jsx', function () {
     files.forEach(function (file) {
       it('should transform fixture ' + file + ' and be equal expected file', function () {
         var input = readFile('fixtures', file);
-        var opts = {};
+        var opts = readJSONSync('options', file);
 
-        opts = readJSONSync('options', file);
+        console.log(opts);
 
         var actual = esformatter.format(input, opts);
         var expected = readFile('expected', file);
