@@ -1,10 +1,10 @@
-var falafel = require('fresh-falafel');
-var defaults = require('lodash.defaults');
+var falafel = require( 'fresh-falafel' );
+var extend = require( 'extend' );
 // inject esprima to fresh-falafel
-falafel.setParser(require('esprima-fb').parse);
+falafel.setParser( require( 'esprima-fb' ).parse );
 
 function hasXJSElementAsParent( node ) {
-  while ( node.parent ) {
+  while (node.parent) {
     if ( node.parent.type === 'JSXElement' ) {
       return true;
     }
@@ -14,51 +14,90 @@ function hasXJSElementAsParent( node ) {
 }
 
 module.exports = {
-
-  setOptions: function (opts) {
+  setOptions: function ( opts ) {
     var me = this;
     opts = opts || {};
 
-    var jsxOptions = opts['jsx'] || {};
+    var jsxOptions = opts.jsx || {};
 
-    me.jsxOptions = defaults(jsxOptions, {
+    me.jsxOptions = extend( true, {
       formatJSX: true,
       attrsOnSameLineAsTag: true,
       maxAttrsOnTag: null,
       firstAttributeOnSameLine: false,
       alignWithFirstAttribute: true
-    });
+    }, jsxOptions );
 
-    if (me.jsxOptions.maxAttrsOnTag < 1) {
+    if ( me.jsxOptions.maxAttrsOnTag < 1 ) {
       me.jsxOptions.maxAttrsOnTag = 1;
     }
 
     var htmlOptions = jsxOptions.htmlOptions || {};
-    me.htmlOptions = defaults(htmlOptions ,  {
-      brace_style: "collapse",
-      indent_char: " ",
+    me.htmlOptions = extend( true, {
+      brace_style: 'collapse', //eslint-disable-line
+      indent_char: ' ', //eslint-disable-line
       //indentScripts: "keep",
-      indent_size: 2,
-      max_preserve_newlines: 2,
-      preserve_newlines: true,
+      indent_size: 2, //eslint-disable-line
+      max_preserve_newlines: 2, //eslint-disable-line
+      preserve_newlines: true, //eslint-disable-line
       //indent_handlebars: true
-      unformatted: ['a', 'span', 'img', 'bdo', 'em', 'strong', 'dfn', 'code', 'samp', 'kbd', 'var', 'cite', 'abbr', 'acronym', 'q', 'sub', 'sup', 'tt', 'i', 'b', 'big', 'small', 'u', 's', 'strike', 'font', 'ins', 'del', 'pre', 'address', 'dt', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+      unformatted: [
+        'a',
+        'span',
+        'img',
+        'bdo',
+        'em',
+        'strong',
+        'dfn',
+        'code',
+        'samp',
+        'kbd',
+        'var',
+        'cite',
+        'abbr',
+        'acronym',
+        'q',
+        'sub',
+        'sup',
+        'tt',
+        'i',
+        'b',
+        'big',
+        'small',
+        'u',
+        's',
+        'strike',
+        'font',
+        'ins',
+        'del',
+        'pre',
+        'address',
+        'dt',
+        'h1',
+        'h2',
+        'h3',
+        'h4',
+        'h5',
+        'h6'
+      ]
       //wrapLineLength: 0
-    });
+    }, htmlOptions );
 
     //}
   },
 
   _sections: [],
-  stringBefore: function (code) {
+  stringBefore: function ( code ) {
     var me = this;
     // array of found jsx sections
     var sections = me._sections = [];
 
     // parse the code
-    code = falafel(code,{ loc: true }, function (node) {
+    code = falafel( code, {
+      loc: true
+    }, function ( node ) {
       // if a JSX node
-      if (node.type === 'JSXElement' && !hasXJSElementAsParent(node)) {
+      if ( node.type === 'JSXElement' && !hasXJSElementAsParent( node ) ) {
         // save the source
         var source = node.source();
         sections.push( source );
@@ -74,123 +113,135 @@ module.exports = {
         // https://github.com/millermedeiros/esformatter/issues/242
         // https://github.com/facebook/esprima/issues/74
         //
-        node.update('void(' + (sections.length - 1) + '/*$$$_XJS_ELEMENT_$$$*/)');
+        node.update( 'void(' + (sections.length - 1) + '/*$$$_XJS_ELEMENT_$$$*/)' );
       }
-    });
+    } );
 
     return code.toString();
   },
 
-  _keepUnformatted: function (tag) {
+  _keepUnformatted: function ( tag ) {
     var me = this;
     var unformatted = me.htmlOptions.unformatted || [];
 
-    return unformatted.indexOf(tag) > -1;
+    return unformatted.indexOf( tag ) > -1;
   },
 
-  _prepareToProcessTags: function (source) {
+  _prepareToProcessTags: function ( source ) {
     var me = this;
-    var code = falafel(source, { loc: true }, function (node) {
-      if (node.type === 'JSXElement' && !node.selfClosing) {
-        if (node.children && node.children.length > 0) {
-          if (!me._keepUnformatted(node.openingElement.name.name)) {
-            node.openingElement.update(node.openingElement.source() + '\n');
-            node.closingElement.update('\n' +node.closingElement.source());
-          }
-          else {
-            var nSource = node.source().replace(/\n/g, ' ').replace(/\s+/g, ' ');
-            node.update(nSource);
+    var code = falafel( source, {
+      loc: true
+    }, function ( node ) {
+      if ( node.type === 'JSXElement' && !node.selfClosing ) {
+        if ( node.children && node.children.length > 0 ) {
+          if ( !me._keepUnformatted( node.openingElement.name.name ) ) {
+            node.openingElement.update( node.openingElement.source() + '\n' );
+            node.closingElement.update( '\n' + node.closingElement.source() );
+          } else {
+            var nSource = node.source().replace( /\n/g, ' ' ).replace( /\s+/g, ' ' );
+            node.update( nSource );
           }
         }
       }
-    });
-    return this._removeEmptyLines(code.toString());
+    } );
+    return this._removeEmptyLines( code.toString() );
   },
 
-  _removeEmptyLines: function (code) {
-    return code.split('\n').filter(function (line) {
+  _removeEmptyLines: function ( code ) {
+    return code.split( '\n' ).filter( function ( line ) {
       return (line.trim() !== '');
-    }).join('\n');
+    } ).join( '\n' );
   },
 
-  _operateOnOpenTags: function (source) {
+  _operateOnOpenTags: function ( source ) {
     var me = this;
-    var code = falafel(source, { loc: true }, function (node) {
-      if (node.type === 'JSXOpeningElement') {
-        if (node.attributes && node.attributes.length > (me.jsxOptions.maxAttrsOnTag || 0)) {
-          var first = node.attributes[0];
+    var code = falafel( source, {
+      loc: true
+    }, function ( node ) {
+      if ( node.type === 'JSXOpeningElement' ) {
+        if ( node.attributes && node.attributes.length > (me.jsxOptions.maxAttrsOnTag || 0) ) {
+          var first = node.attributes[ 0 ];
           var firstAttributeInSameLine = me.jsxOptions.firstAttributeOnSameLine;
 
           var alignWith = me.jsxOptions.alignWithFirstAttribute ? first.loc.start.column + 1 : node.loc.start.column + 3;
-          var tabPrefix = (new Array(alignWith)).join(' ');
-
+          var tabPrefix = (new Array( alignWith )).join( ' ' );
 
           var index = 0;
-          node.attributes.forEach(function (cNode) {
+          node.attributes.forEach( function ( cNode ) {
             index++;
-            if (firstAttributeInSameLine && index === 1) {
+            if ( firstAttributeInSameLine && index === 1 ) {
               //first = false;
               return cNode;
             }
 
-            cNode.update('\n'+ tabPrefix + cNode.source());
-          });
+            cNode.update( '\n' + tabPrefix + cNode.source() );
+          } );
         }
       }
-    });
+    } );
 
     return code.toString();
   },
 
-  stringAfter: function (code) {
+  stringAfter: function ( code ) {
     var me = this;
     var sections = me._sections || [];
     // no jsx content found in the file
-    if (sections.length === 0) {
+    if ( sections.length === 0 ) {
       // just return the code as is
       return code;
     }
     // otherwise
-    return falafel(code, { loc: true },function (node) {
+    return falafel( code, {
+      loc: true
+    }, function ( node ) {
       // check for the node we added, it should be an UnaryExpression, void and have the
       // custom comment we have included
-      if (node.type === 'UnaryExpression' &&
+      if ( node.type === 'UnaryExpression' &&
         node.operator === 'void' &&
-        node.source().match(/void\s*\(\s*(\d+)\s*\/\*\$\$\$_XJS_ELEMENT_\$\$\$\*\/\s*\)/g)
-        ) {
+        node.source().match( /void\s*\(\s*(\d+)\s*\/\*\$\$\$_XJS_ELEMENT_\$\$\$\*\/\s*\)/g )
+      ) {
         // if it is a comment, get the argument passed
-        var nodeIdx = parseInt(node.argument.source(), 10);
+        var nodeIdx = parseInt( node.argument.source(), 10 );
         // get the value from that node from the tokens we have stored before
-        var source = sections[nodeIdx];
+        var source = sections[ nodeIdx ];
 
         var jsxOptions = me.jsxOptions;
 
-        if (jsxOptions.formatJSX) {
-          var beautifier = require('js-beautify');
+        if ( jsxOptions.formatJSX ) {
+
+          var beautifier = require( 'js-beautify' );
           var first = false;
 
-          if (!jsxOptions.attrsOnSameLineAsTag) {
-            source = me._prepareToProcessTags(source);
+          if ( !jsxOptions.attrsOnSameLineAsTag ) {
+            source = me._prepareToProcessTags( source );
           }
 
-          source = beautifier.html(source, me.htmlOptions);
+          source = beautifier.html( source, me.htmlOptions );
 
           if ( !jsxOptions.attrsOnSameLineAsTag ) {
-            source = me._operateOnOpenTags(source);
+            source = me._operateOnOpenTags( source );
           }
-
-          source = me._removeEmptyLines(source).split('\n').map(function (line) {
-            line = line.replace(/\s+$/g, '');
-            if (!first) {
+          //console.log('\nnode\n',source, node.parent.type, '\nnode-end\n');
+          source = me._removeEmptyLines( source ).split( '\n' ).map( function ( line ) {
+            line = line.replace( /\s+$/g, '' );
+            if ( !first ) {
               first = true;
               return line;
             }
             var alingWith = (node.loc.start.column + 1);
-            return ((new Array(alingWith)).join(' ')) + line;
-          }).join('\n');
+            //            console.log('>> line', line, alingWith);
+            return ( (new Array( alingWith )).join( ' ' )) + line;
+          } ).join( '\n' );
+
+          if ( node.parent && node.parent.type === 'ConditionalExpression' ) {
+            source = source.split( '\n' ).map( function ( line ) {
+              return line.trim();
+            } ).join( '' );
+          }
         }
-        node.update(source);
+        node.update( source );
       }
-    }).toString();
+    } ).toString();
   }
 };

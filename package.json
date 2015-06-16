@@ -16,12 +16,12 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "beautify": "esbeautifier index.js 'specs/**/*.js'",
-    "beautify-check": "esbeautifier -k index.js 'specs/**/*.js'",
-    "eslint": "./bin/cli.js index.js 'specs/**/*.js'",
-    "test": "mocha-runner 'specs/**/*.js'",
-    "cover": "istanbul cover -x 'specs/**/*.js' mocha-runner 'specs/**/*.js' html text-summary",
-    "watch": "npm run cover && watch-spawn -p 'specs/**/*.js' -p 'index.js' -p  npm run cover",
+    "beautify": "esbeautifier index.js 'specs/**/*.spec.js'",
+    "beautify-check": "esbeautifier -k index.js 'specs/**/*.spec.js'",
+    "eslint": "eslinter index.js 'specs/**/*.spec.js'",
+    "test": "mocha-runner 'specs/**/*.spec.js'",
+    "cover": "istanbul cover -x 'specs/**/*.spec.js' mocha-runner 'specs/**/*.spec.js' html text-summary",
+    "watch": "npm run cover && watch-spawn -p 'specs/**/*.spec.js' -p 'index.js' -p  npm run cover",
     "lint": "npm run beautify && npm run eslint && npm test",
     "check": "npm run beautify-check && npm run eslint && npm test",
     "changelog": "changelogx -f markdown -o ./changelog.md",
@@ -42,16 +42,15 @@
   "peerDependencies": {},
   "dependencies": {
     "esprima-fb": "^13001.1.0-dev-harmony-fb",
+    "extend": "^2.0.1",
     "fresh-falafel": "^0.2.6",
-    "js-beautify": "^1.5.4",
-    "lodash.defaults": "^3.0.0"
+    "js-beautify": "^1.5.4"
   },
   "devDependencies": {
     "bumpery": "^1.0.7",
     "chai": "*",
     "changelogx": "^1.0.13",
     "esbeautifier": "^2.0.5",
-    "esformatter": "^0.5.0",
     "eslinter": "^2.0.1",
     "istanbul": "^0.3.15",
     "mocha-runner": "^1.0.8",

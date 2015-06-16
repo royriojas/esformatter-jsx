@@ -1,9 +1,9 @@
 function demo(containersGroup, isCollections, trans) {
   if ( containersGroup.length === 0 ) {
-    containersGroup = isCollections ? <li className="empty-result">
+    containersGroup = isCollections ? <li className="empty-result" data-value="a" data-another="2">
                                           {trans('addToContainer.NO_COLLECTIONS_FOUND')}
     </li> : <li className="empty-result">
-                                                                              {trans('addToContainer.NO_CLASSES_FOUND')}
+        {trans('addToContainer.NO_CLASSES_FOUND')}
     </li>;
   }
 
