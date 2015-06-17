@@ -30,7 +30,7 @@
     "changelog": "changelogx -f markdown -o ./changelog.md",
     "do-changelog": "npm run changelog && git add ./changelog.md && git commit -m 'DOC: Generate changelog'",
     "install-hooks": "prepush install && changelogx install-hook",
-    "bump": "bumpery --versionType=patch && npm run changelog && git add changelog.md && git commit -m 'DOC: Generate changelog'"
+    "bump": "bumpery --versionType=patch"
   },
   "keywords": [
     "esformatter-plugin",
