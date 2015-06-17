@@ -28,6 +28,7 @@
     "lint": "npm run beautify && npm run eslint && npm test",
     "check": "npm run beautify-check && npm run eslint && npm test",
     "changelog": "changelogx -f markdown -o ./changelog.md",
+    "do-changelog": "npm run changelog && git add ./changelog.md && git commit -m 'DOC: Generate changelog'",
     "install-hooks": "prepush install && changelogx install-hook",
     "bump": "bumpery --versionType=patch && npm run changelog && git add changelog.md && git commit -m 'DOC: Generate changelog'"
   },
@@ -59,5 +60,17 @@
     "proxyquire": "^1.5.0",
     "read-json-sync": "^1.1.0",
     "watch-spawn": "^1.0.3"
+  },
+  "changelogx": {
+    "ignoreRegExp": [
+      "BLD: Release",
+      "DOC: Generate Changelog",
+      "Generated Changelog"
+    ],
+    "issueIDRegExp": "#(\\d+)",
+    "commitURL": "https://github.com/[object Object]/esformatter-jsx/commit/{0}",
+    "authorURL": "https://github.com/{0}",
+    "issueIDURL": "https://github.com/[object Object]/esformatter-jsx/issues/{0}",
+    "projectName": "esformatter-jsx"
   }
 }
