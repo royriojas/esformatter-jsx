@@ -171,40 +171,7 @@ module.exports = {
       ]
       //wrapLineLength: 0
     }, htmlOptions );
-
-    //}
   },
-  _sections: [],
-  //  stringBefore: function ( code ) {
-  //    var me = this;
-  //    // array of found jsx sections
-  //    var sections = me._sections = [];
-  //
-  //    // parse the code
-  //    code = falafel( code, parserOpts, function ( node ) {
-  //      // if a JSX node
-  //      if ( node.type === 'JSXElement' && !hasXJSElementAsParent( node ) ) {
-  //        // save the source
-  //        var source = node.source();
-  //        sections.push( source );
-  //        // replace it with a token like `void(0)/*$$$_XJS_ELEMENT_$$$*/`
-  //        // the index is passed to void that way we can restore them later
-  //        // we just want to temporary ignore those nodes because esformatter
-  //        // does not play well yet with jsx syntax.
-  //        // Actually rocambole already uses esprima-fb, but there is a bug in esprima-fb
-  //        // that will make very risky to use it in esformatter at this time. basically if
-  //        // a regex expression is present in the file to be beautified it will be duplicated
-  //        // Really sad, really lame. check:
-  //        //
-  //        // https://github.com/millermedeiros/esformatter/issues/242
-  //        // https://github.com/facebook/esprima/issues/74
-  //        //
-  //        node.update( 'void(' + (sections.length - 1) + '/*$$$_XJS_ELEMENT_$$$*/)' );
-  //      }
-  //    } );
-  //
-  //    return code.toString();
-  //  },
 
   _keepUnformatted: function ( tag ) {
     var me = this;
@@ -221,10 +188,14 @@ module.exports = {
             node.openingElement.update( node.openingElement.source() + '\n' );
             node.closingElement.update( '\n' + node.closingElement.source() );
           } else {
-
-            var nSource = node.source().replace( /\n/g, ' ' ).replace( /\s+/g, ' ' );
+            //console.log('source before', );
+            var childrenSource = node.children.map(function (n) { return n.source() } ).join('').trim();
+            var openTag = node.openingElement.source().replace( /\n/g, ' ' ).replace( /\s+/g, ' ').trim();
+            var closeTag = node.closingElement.source().replace( /\n/g, ' ' ).replace( /\s+/g, ' ').trim()
+            var nSource = openTag + childrenSource + closeTag;
 
             node.update( nSource );
+            //console.log('source after', node.children.map(function (n) { return n.source() } ).join(''));
           }
         }
       }
