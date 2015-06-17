@@ -189,9 +189,22 @@ module.exports = {
             node.closingElement.update( '\n' + node.closingElement.source() );
           } else {
             //console.log('source before', );
-            var childrenSource = node.children.map(function (n) { return n.source() } ).join('').trim();
-            var openTag = node.openingElement.source().replace( /\n/g, ' ' ).replace( /\s+/g, ' ').trim();
-            var closeTag = node.closingElement.source().replace( /\n/g, ' ' ).replace( /\s+/g, ' ').trim()
+            var childrenSource = node.children.map( function ( n, idx ) {
+              var src = n.source().replace( /\n/g, ' ' ).replace( /\s+/g, ' ' );
+
+              var prev = node.children[ idx - 1 ] || {};
+              var next = node.children[ idx + 1 ] || {};
+
+              if ( src.trim() === ''
+                && prev.type === 'JSXExpressionContainer'
+                && next.type === 'JSXExpressionContainer' ) {
+                src = '';
+              }
+              return src;
+            } ).join( '' ).trim();
+
+            var openTag = node.openingElement.source().replace( /\n/g, ' ' ).replace( /\s+/g, ' ' ).trim();
+            var closeTag = node.closingElement.source().replace( /\n/g, ' ' ).replace( /\s+/g, ' ' ).trim();
             var nSource = openTag + childrenSource + closeTag;
 
             node.update( nSource );
@@ -280,6 +293,7 @@ module.exports = {
             return ( (new Array( alingWith )).join( ' ' )) + line;
           } ).join( '\n' );
 
+          //console.log( '>>>', node.parent.type );
           if ( node.parent && node.parent.type === 'ConditionalExpression' ) {
             source = source.split( '\n' ).map( function ( line ) {
               return line.trim();
