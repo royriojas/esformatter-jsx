@@ -1,5 +1,14 @@
 
 # esformatter-jsx - Changelog
+## v1.3.0
+- **Enhancements**
+  - Make more predictive the parsing of jsx tags - [ca7f190]( https://github.com/[object Object]/esformatter-jsx/commit/ca7f190 ), [royriojas](https://github.com/royriojas), 17/06/2015 03:07:13
+
+    
+- **Bug Fixes**
+  - remove initial and final text surrounding a tag to prevent react from creating span tags - [916c0b2]( https://github.com/[object Object]/esformatter-jsx/commit/916c0b2 ), [royriojas](https://github.com/royriojas), 17/06/2015 02:05:36
+
+    
 ## v1.1.1
 - **Build Scripts Changes**
   - simplify bump task - [c4b9582]( https://github.com/[object Object]/esformatter-jsx/commit/c4b9582 ), [royriojas](https://github.com/royriojas), 16/06/2015 22:45:25
