@@ -34,23 +34,21 @@
     "jsx",
     "react jsx",
     "AST",
-    "esprima-fb",
-    "fresh-falafel",
     "codestyle",
     "react jsx"
   ],
   "peerDependencies": {},
   "dependencies": {
-    "esprima-fb": "^13001.1.0-dev-harmony-fb",
     "extend": "^2.0.1",
-    "fresh-falafel": "^0.2.6",
-    "js-beautify": "^1.5.4"
+    "falafel-espree": "^1.1.0",
+    "js-beautify": "^1.5.6"
   },
   "devDependencies": {
     "bumpery": "^1.0.7",
     "chai": "*",
     "changelogx": "^1.0.13",
-    "esbeautifier": "^2.0.5",
+    "esbeautifier": "^2.2.3",
+    "esformatter": "^0.7.0",
     "eslinter": "^2.0.1",
     "istanbul": "^0.3.15",
     "mocha-runner": "^1.0.8",

@@ -1,7 +1,96 @@
-var falafel = require( 'fresh-falafel' );
+var falafel = require( 'falafel-espree' );
 var extend = require( 'extend' );
-// inject esprima to fresh-falafel
-falafel.setParser( require( 'esprima-fb' ).parse );
+var parserOpts = {
+  // attach range information to each node
+  range: true,
+
+  // attach line/column location information to each node
+  loc: true,
+
+  // create a top-level comments array containing all comments
+  comments: true,
+
+  // attach comments to the closest relevant node as leadingComments and
+  // trailingComments
+  attachComment: true,
+
+  // create a top-level tokens array containing all tokens
+  tokens: true,
+
+  // try to continue parsing if an error is encountered, store errors in a
+  // top-level errors array
+  tolerant: true,
+
+  // specify parsing features (default only has blockBindings: true)
+  // setting this option replaces the default values
+  ecmaFeatures: {
+    // enable parsing of arrow functions
+    arrowFunctions: true,
+
+    // enable parsing of let/const
+    blockBindings: true,
+
+    // enable parsing of destructured arrays and objects
+    destructuring: true,
+
+    // enable parsing of regular expression y flag
+    regexYFlag: true,
+
+    // enable parsing of regular expression u flag
+    regexUFlag: true,
+
+    // enable parsing of template strings
+    templateStrings: true,
+
+    // enable parsing of binary literals
+    binaryLiterals: true,
+
+    // enable parsing of ES6 octal literals
+    octalLiterals: true,
+
+    // enable parsing unicode code point escape sequences
+    unicodeCodePointEscapes: true,
+
+    // enable parsing of default parameters
+    defaultParams: true,
+
+    // enable parsing of rest parameters
+    restParams: true,
+
+    // enable parsing of for-of statement
+    forOf: true,
+
+    // enable parsing computed object literal properties
+    objectLiteralComputedProperties: true,
+
+    // enable parsing of shorthand object literal methods
+    objectLiteralShorthandMethods: true,
+
+    // enable parsing of shorthand object literal properties
+    objectLiteralShorthandProperties: true,
+
+    // Allow duplicate object literal properties (except '__proto__')
+    objectLiteralDuplicateProperties: true,
+
+    // enable parsing of generators/yield
+    generators: true,
+
+    // enable parsing spread operator
+    spread: true,
+
+    // enable parsing classes
+    classes: true,
+
+    // enable parsing of modules
+    modules: true,
+
+    // enable React JSX parsing
+    jsx: true,
+
+    // enable return in global scope
+    globalReturn: true
+  }
+};
 
 function hasXJSElementAsParent( node ) {
   while (node.parent) {
@@ -85,40 +174,37 @@ module.exports = {
 
     //}
   },
-
   _sections: [],
-  stringBefore: function ( code ) {
-    var me = this;
-    // array of found jsx sections
-    var sections = me._sections = [];
-
-    // parse the code
-    code = falafel( code, {
-      loc: true
-    }, function ( node ) {
-      // if a JSX node
-      if ( node.type === 'JSXElement' && !hasXJSElementAsParent( node ) ) {
-        // save the source
-        var source = node.source();
-        sections.push( source );
-        // replace it with a token like `void(0)/*$$$_XJS_ELEMENT_$$$*/`
-        // the index is passed to void that way we can restore them later
-        // we just want to temporary ignore those nodes because esformatter
-        // does not play well yet with jsx syntax.
-        // Actually rocambole already uses esprima-fb, but there is a bug in esprima-fb
-        // that will make very risky to use it in esformatter at this time. basically if
-        // a regex expression is present in the file to be beautified it will be duplicated
-        // Really sad, really lame. check:
-        //
-        // https://github.com/millermedeiros/esformatter/issues/242
-        // https://github.com/facebook/esprima/issues/74
-        //
-        node.update( 'void(' + (sections.length - 1) + '/*$$$_XJS_ELEMENT_$$$*/)' );
-      }
-    } );
-
-    return code.toString();
-  },
+  //  stringBefore: function ( code ) {
+  //    var me = this;
+  //    // array of found jsx sections
+  //    var sections = me._sections = [];
+  //
+  //    // parse the code
+  //    code = falafel( code, parserOpts, function ( node ) {
+  //      // if a JSX node
+  //      if ( node.type === 'JSXElement' && !hasXJSElementAsParent( node ) ) {
+  //        // save the source
+  //        var source = node.source();
+  //        sections.push( source );
+  //        // replace it with a token like `void(0)/*$$$_XJS_ELEMENT_$$$*/`
+  //        // the index is passed to void that way we can restore them later
+  //        // we just want to temporary ignore those nodes because esformatter
+  //        // does not play well yet with jsx syntax.
+  //        // Actually rocambole already uses esprima-fb, but there is a bug in esprima-fb
+  //        // that will make very risky to use it in esformatter at this time. basically if
+  //        // a regex expression is present in the file to be beautified it will be duplicated
+  //        // Really sad, really lame. check:
+  //        //
+  //        // https://github.com/millermedeiros/esformatter/issues/242
+  //        // https://github.com/facebook/esprima/issues/74
+  //        //
+  //        node.update( 'void(' + (sections.length - 1) + '/*$$$_XJS_ELEMENT_$$$*/)' );
+  //      }
+  //    } );
+  //
+  //    return code.toString();
+  //  },
 
   _keepUnformatted: function ( tag ) {
     var me = this;
@@ -126,19 +212,18 @@ module.exports = {
 
     return unformatted.indexOf( tag ) > -1;
   },
-
   _prepareToProcessTags: function ( source ) {
     var me = this;
-    var code = falafel( source, {
-      loc: true
-    }, function ( node ) {
+    var code = falafel( source, parserOpts, function ( node ) {
       if ( node.type === 'JSXElement' && !node.selfClosing ) {
         if ( node.children && node.children.length > 0 ) {
           if ( !me._keepUnformatted( node.openingElement.name.name ) ) {
             node.openingElement.update( node.openingElement.source() + '\n' );
             node.closingElement.update( '\n' + node.closingElement.source() );
           } else {
+
             var nSource = node.source().replace( /\n/g, ' ' ).replace( /\s+/g, ' ' );
+
             node.update( nSource );
           }
         }
@@ -146,18 +231,14 @@ module.exports = {
     } );
     return this._removeEmptyLines( code.toString() );
   },
-
   _removeEmptyLines: function ( code ) {
     return code.split( '\n' ).filter( function ( line ) {
       return (line.trim() !== '');
     } ).join( '\n' );
   },
-
   _operateOnOpenTags: function ( source ) {
     var me = this;
-    var code = falafel( source, {
-      loc: true
-    }, function ( node ) {
+    var code = falafel( source, parserOpts, function ( node ) {
       if ( node.type === 'JSXOpeningElement' ) {
         if ( node.attributes && node.attributes.length > (me.jsxOptions.maxAttrsOnTag || 0) ) {
           var first = node.attributes[ 0 ];
@@ -182,29 +263,23 @@ module.exports = {
 
     return code.toString();
   },
-
   stringAfter: function ( code ) {
     var me = this;
-    var sections = me._sections || [];
-    // no jsx content found in the file
-    if ( sections.length === 0 ) {
-      // just return the code as is
-      return code;
-    }
+    //    var sections = me._sections || [];
+    //    // no jsx content found in the file
+    //    if ( sections.length === 0 ) {
+    //      // just return the code as is
+    //      return code;
+    //    }
     // otherwise
-    return falafel( code, {
-      loc: true
-    }, function ( node ) {
+    return falafel( code, parserOpts, function ( node ) {
       // check for the node we added, it should be an UnaryExpression, void and have the
       // custom comment we have included
-      if ( node.type === 'UnaryExpression' &&
-        node.operator === 'void' &&
-        node.source().match( /void\s*\(\s*(\d+)\s*\/\*\$\$\$_XJS_ELEMENT_\$\$\$\*\/\s*\)/g )
-      ) {
+      if ( node.type === 'JSXElement' && !hasXJSElementAsParent( node ) ) {
         // if it is a comment, get the argument passed
-        var nodeIdx = parseInt( node.argument.source(), 10 );
+        //var nodeIdx = parseInt( node.argument.source(), 10 );
         // get the value from that node from the tokens we have stored before
-        var source = sections[ nodeIdx ];
+        var source = node.source(); //sections[ nodeIdx ];
 
         var jsxOptions = me.jsxOptions;
 

@@ -3,7 +3,7 @@
 'use strict';
 var fs = require( 'fs' );
 var path = require( 'path' );
-var esformatter = require( 'esbeautifier/node_modules/esformatter' );
+var esformatter = require( 'esformatter' );
 var plugin = require( '../' );
 var expect = require( 'chai' ).expect;
 var readJSON = require( 'read-json-sync' );
@@ -33,9 +33,9 @@ describe( 'esformatter-jsx', function () {
   describe( 'format jsx blocks', function () {
     var files = fs.readdirSync( './specs/fixtures/' );
 
-    //    files = files.filter(function (file) {
-    //      return file.match(/ternary/);
-    //    });
+    //        files = files.filter(function (file) {
+    //          return file.match(/unformatted/);
+    //        });
 
     files.forEach( function ( file ) {
       it( 'should transform fixture ' + file + ' and be equal expected file', function () {
