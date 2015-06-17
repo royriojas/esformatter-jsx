@@ -1,5 +1,14 @@
 
 # esformatter-jsx - Changelog
+## HEAD
+- **Build Scripts Changes**
+  - Add prepush config section - [76c53e2]( https://github.com/[object Object]/esformatter-jsx/commit/76c53e2 ), [royriojas](https://github.com/royriojas), 16/06/2015 22:42:00
+
+    
+- **Refactoring**
+  - update to use falafel-espree - [779afc9]( https://github.com/[object Object]/esformatter-jsx/commit/779afc9 ), [royriojas](https://github.com/royriojas), 16/06/2015 22:39:45
+
+    
 ## v1.0.9
 - **Features**
   - Ternary operators in jsx will try to remain in the same line - [eb1ee17]( https://github.com/[object Object]/esformatter-jsx/commit/eb1ee17 ), [royriojas](https://github.com/royriojas), 16/06/2015 04:22:31
