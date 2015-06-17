@@ -1,7 +1,13 @@
 
 # esformatter-jsx - Changelog
-## HEAD
+## v1.1.1
 - **Build Scripts Changes**
+  - simplify bump task - [c4b9582]( https://github.com/[object Object]/esformatter-jsx/commit/c4b9582 ), [royriojas](https://github.com/royriojas), 16/06/2015 22:45:25
+
+    
+  - Add changelogx generation task - [8b4948e]( https://github.com/[object Object]/esformatter-jsx/commit/8b4948e ), [royriojas](https://github.com/royriojas), 16/06/2015 22:44:39
+
+    
   - Add prepush config section - [76c53e2]( https://github.com/[object Object]/esformatter-jsx/commit/76c53e2 ), [royriojas](https://github.com/royriojas), 16/06/2015 22:42:00
 
     
