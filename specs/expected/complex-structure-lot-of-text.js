@@ -34,12 +34,14 @@ var Cards = React.createClass({
         left: card.id * 310
       };
 
-      return <Card card={card}
-                   key={card.id}
-                   pos={pos}
-                   onToggled={me.onToggled} />;
+      return <Card card={ card }
+                   key={ card.id }
+                   pos={ pos }
+                   onToggled={ me.onToggled } />;
     });
-    var toggled = this.state.allToggled ? <div>All Toggled</div> : null;
+    var toggled = this.state.allToggled ? <div>
+                                            All Toggled
+                                          </div> : null;
 
     return <div>
              <div className="message">
@@ -50,9 +52,9 @@ var Cards = React.createClass({
                { toggled }
              </div>
              <div className="stage">
-               {cards}
+               { cards }
              </div>
-             <div className={footerClass}>
+             <div className={ footerClass }>
                <p>
                  Y no me cansaré de repetírtelo...
                  <br /> Me haces muy feliz!

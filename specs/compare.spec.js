@@ -5,7 +5,6 @@ var fs = require( 'fs' );
 var path = require( 'path' );
 var esformatter = require( 'esformatter' );
 var plugin = require( '../' );
-var expect = require( 'chai' ).expect;
 var readJSON = require( 'read-json-sync' );
 
 var readFile = function ( folder, name ) {
@@ -16,7 +15,7 @@ var readFile = function ( folder, name ) {
 var readJSONSync = function ( folder, name ) {
   name = path.basename( name, '.js' );
   var filePath = path.join( './specs', folder, name + '.json' );
-  var json = {};
+  var json = { };
   try {
     json = readJSON( filePath );
   } catch (ex) {
@@ -45,8 +44,9 @@ describe( 'esformatter-jsx', function () {
         var actual = esformatter.format( input, opts );
         var expected = readFile( 'expected', file );
         //console.log( '\n\n', actual, '\n\n' );
+        //fs.writeFileSync('./specs/expected/' + path.basename(file), actual);
 
-        expect( actual ).to.equal( expected, 'file comparison failed: ' + file );
+        expect( expected ).to.equal( actual, 'file comparison failed: ' + file );
 
       } );
     } );

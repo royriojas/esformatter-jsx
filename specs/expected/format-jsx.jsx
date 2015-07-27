@@ -34,7 +34,7 @@ var Cards = React.createClass({
         left: card.id * 310
       };
 
-      return <Card card={card} key={card.id} pos={pos} onToggled={me.onToggled} />;
+      return <Card card={ card } key={ card.id } pos={ pos } onToggled={ me.onToggled } />;
     });
     var dataProps = {
       'data-some-val': 1
@@ -45,9 +45,9 @@ var Cards = React.createClass({
                  <br /> Pero igual deberás descubrirlo </p>
              </div>
              <div className="stage">
-               {cards}
+               { cards }
              </div>
-             <div className={footerClass}>
+             <div className={ footerClass }>
                <p> Y no me cansaré de repetírtelo...
                  <br /> Me haces muy feliz! </p>
              </div>
