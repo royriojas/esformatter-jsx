@@ -1,5 +1,14 @@
 
 # esformatter-jsx - Changelog
+## v2.0.0
+- **Build Scripts Changes**
+  - Add bump to major script - [0bffcba]( https://github.com/[object Object]/esformatter-jsx/commit/0bffcba ), [royriojas](https://github.com/royriojas), 27/07/2015 22:18:41
+
+    
+- **Refactoring**
+  - Big refactoring of the beautifier to address several bugs. Fixes [#4](https://github.com/[object Object]/esformatter-jsx/issues/4), Fixes [#9](https://github.com/[object Object]/esformatter-jsx/issues/9) - [d1630a9]( https://github.com/[object Object]/esformatter-jsx/commit/d1630a9 ), [royriojas](https://github.com/royriojas), 27/07/2015 15:57:02
+
+    
 ## v1.3.0
 - **Enhancements**
   - Make more predictive the parsing of jsx tags - [ca7f190]( https://github.com/[object Object]/esformatter-jsx/commit/ca7f190 ), [royriojas](https://github.com/royriojas), 17/06/2015 03:07:13
