@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v2.0.1
+- **Bug Fixes**
+  - missing lib folder - [ec9935a]( https://github.com/[object Object]/esformatter-jsx/commit/ec9935a ), [royriojas](https://github.com/royriojas), 28/07/2015 00:08:21
+
+    
 ## v2.0.0
 - **Build Scripts Changes**
   - Add bump to major script - [0bffcba]( https://github.com/[object Object]/esformatter-jsx/commit/0bffcba ), [royriojas](https://github.com/royriojas), 27/07/2015 22:18:41
