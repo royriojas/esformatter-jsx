@@ -48,11 +48,9 @@
   ],
   "peerDependencies": {},
   "dependencies": {
-    "espree": "^2.2.3",
     "extend": "^2.0.1",
     "falafel-espree": "^1.1.0",
-    "js-beautify": "^1.5.10",
-    "rocambole": "^0.6.0"
+    "js-beautify": "^1.5.10"
   },
   "devDependencies": {
     "changelogx": "^1.0.15",
