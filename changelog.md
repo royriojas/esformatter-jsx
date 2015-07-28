@@ -1,5 +1,11 @@
 
 # esformatter-jsx - Changelog
+## v2.0.3
+- **Bug Fixes**
+  - Major issue with nodes being deleted because some weird issue with rocambole. - [48a0a71]( https://github.com/[object Object]/esformatter-jsx/commit/48a0a71 ), [royriojas](https://github.com/royriojas), 28/07/2015 02:56:49
+
+    Switched back to use falafel-espree. Definitively it works better and do not destroy the code
+    
 ## v2.0.2
 - **Build Scripts Changes**
   - Fix pre-version script so it executes tests only once - [384d14e]( https://github.com/[object Object]/esformatter-jsx/commit/384d14e ), [royriojas](https://github.com/royriojas), 28/07/2015 01:10:37
