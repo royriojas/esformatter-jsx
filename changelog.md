@@ -1,5 +1,13 @@
 
 # esformatter-jsx - Changelog
+## v2.0.2
+- **Build Scripts Changes**
+  - Fix pre-version script so it executes tests only once - [384d14e]( https://github.com/[object Object]/esformatter-jsx/commit/384d14e ), [royriojas](https://github.com/royriojas), 28/07/2015 01:10:37
+
+    
+  - remove unused rocambole-token dep - [116bb31]( https://github.com/[object Object]/esformatter-jsx/commit/116bb31 ), [royriojas](https://github.com/royriojas), 28/07/2015 01:09:46
+
+    
 ## v2.0.1
 - **Bug Fixes**
   - missing lib folder - [ec9935a]( https://github.com/[object Object]/esformatter-jsx/commit/ec9935a ), [royriojas](https://github.com/royriojas), 28/07/2015 00:08:21
