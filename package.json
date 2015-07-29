@@ -1,6 +1,6 @@
 {
   "name": "esformatter-jsx",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "esformatter plugin: format javascript files that contain React JSX blocks",
   "repository": "royriojas/esformatter-jsx",
   "license": "MIT",
@@ -36,7 +36,7 @@
     "bump-major": "npm run pre-v && npm version major -m 'BLD: Release v%s' && npm run post-v",
     "bump-minor": "npm run pre-v && npm version minor -m 'BLD: Release v%s' && npm run post-v",
     "bump-patch": "npm run pre-v && npm version patch -m 'BLD: Release v%s' && npm run post-v",
-    "exec-demo" : "cd demo && node runner.js"
+    "exec-demo": "cd demo && node runner.js"
   },
   "keywords": [
     "esformatter-plugin",
