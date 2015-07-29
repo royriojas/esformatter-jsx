@@ -1,5 +1,11 @@
 
 # esformatter-jsx - Changelog
+## v2.0.4
+#### `/>`
+- **Bug Fixes**
+  - in the same of the last attribute - [e066931]( https://github.com/[object Object]/esformatter-jsx/commit/e066931 ), [royriojas](https://github.com/royriojas), 28/07/2015 17:34:19
+
+    
 ## v2.0.3
 - **Bug Fixes**
   - Major issue with nodes being deleted because some weird issue with rocambole. - [48a0a71]( https://github.com/[object Object]/esformatter-jsx/commit/48a0a71 ), [royriojas](https://github.com/royriojas), 28/07/2015 02:56:49
