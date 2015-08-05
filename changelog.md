@@ -1,5 +1,13 @@
 
 # esformatter-jsx - Changelog
+## v2.0.6
+- **Documentation**
+  - document new option `spaceInJSXExpressionContainers` - [5601b77]( https://github.com/[object Object]/esformatter-jsx/commit/5601b77 ), [royriojas](https://github.com/royriojas), 05/08/2015 01:02:19
+
+    ```javascript
+      "spaceInJSXExpressionContainers": " " // set it to "" to remove spaces in JSXExpressionContainers
+    ```
+    
 ## v2.0.5
 - **Build Scripts Changes**
   - Add precommit module - [68a7139]( https://github.com/[object Object]/esformatter-jsx/commit/68a7139 ), [royriojas](https://github.com/royriojas), 05/08/2015 00:58:39
