@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v2.0.7
+- **Bug Fixes**
+  - nested JSXElements inside JSXExpressionContainers now are properly beautified - [3ef3595]( https://github.com/[object Object]/esformatter-jsx/commit/3ef3595 ), [royriojas](https://github.com/royriojas), 06/08/2015 17:35:14
+
+    
 ## v2.0.6
 - **Documentation**
   - document new option `spaceInJSXExpressionContainers` - [5601b77]( https://github.com/[object Object]/esformatter-jsx/commit/5601b77 ), [royriojas](https://github.com/royriojas), 05/08/2015 01:02:19
