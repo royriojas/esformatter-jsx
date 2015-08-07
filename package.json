@@ -32,7 +32,7 @@
     "lint": "npm run beautify && npm run eslint && npm test",
     "check": "npm run beautify-check && npm run eslint && npm test",
     "changelog": "changelogx -f markdown -o ./changelog.md",
-    "do-changelog": "npm run changelog && git add ./changelog.md && git commit -m 'DOC: Generate changelog'",
+    "do-changelog": "npm run changelog && git add ./changelog.md && git commit -m 'DOC: Generate changelog' --no-verify",
     "install-hooks": "prepush install && changelogx install-hook && precommit install",
     "pre-v": "npm run check",
     "post-v": "npm run do-changelog && git push --no-verify && git push --tags --no-verify",

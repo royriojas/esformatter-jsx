@@ -8,45 +8,6 @@
 
 Live demo: [esformatter-jsx](http://requirebin.com/embed?gist=0d67452e01754269660f)
 
-## Notes
-
-### Nested jsx elements and ternary operators
-
-The following construct will be a bit problematic
-```javascript
-return <div>
-  { this.state.allSaved ? <div> some content </div> : null }
-</div>;
-```
-
-this will be beautified as
-
-```javascript
-return <div>
-         { this.state.allSaved ?
-         <div> all Saved! </div> : null }
-       </div>;
-```
-
-Where possible try to assign that content from outside and use something like this
-
-```javascript
-var allSaved =  this.state.allSaved ? <div>All Saved!</div> : null;
-return <div>
-  {allSaved}
-</div>
-```
-
-The previous will be beautified as
-```javascript
-var allSaved =  this.state.allSaved ? <div>All Saved!</div> : null;
-return <div>
-         {allSaved}
-       </div>
-```
-
-Which IMHO looks better.
-
 ### best configuration
 
 If you're running into troubles with the formatting applied to your files I found this configuration to work the best:
@@ -61,14 +22,7 @@ If you're running into troubles with the formatting applied to your files I foun
     "alignWithFirstAttribute": false, // do not align attributes with the first tag
     "spaceInJSXExpressionContainers": " ", // default to one space. Make it empty if you don't like spaces between JSXExpressionContainers
     "htmlOptions": {
-      "unformatted": [] // let's format all tags, the default in `js-beautify.html` is to leave unformatted a lot of tags
-                        // which sometimes will not work fine with all jsx structures. By forcing the formatting of all tags
-                        // this will prevent the introduction of undesired spans in the generated output
-                        //
-                        // example:
-                        // <a><span>Some</span></a> // this is ok
-                        // <a> <span>Some</span> </a> // this is not ok. React will generate extra spans for the
-                        // the empty space characters around the span.
+      // put here the options for js-beautify.html
     }
   }
 }
@@ -78,8 +32,9 @@ If you're running into troubles with the formatting applied to your files I foun
 
 **Esformatter-jsx** is a plugin for [esformatter](https://github.com/millermedeiros/esformatter) meant to allow the
 code formatting of jsx files or js files with React code blocks, using [js-beautify](https://www.npmjs.com/package/js-beautify) to
-beautify the html like syntax of the react components. **Use at your own risk**. I have tested this against complex JSX structures
-and seems to be workfing fine, but bugs might appear, so don't blame me :). It works for my main use case and I hope it works for you too.
+beautify the "html like" syntax of the react components. **Use at your own risk**. I have tested this against complex JSX structures and seems to be workfing fine, but bugs might appear, so don't blame me :).
+
+It works for my main use case and I hope it works for you too.
 
 This plugin is based on [esformatter-jsx-ignore](https://github.com/royriojas/esformatter-jsx-ignore)
 
@@ -152,24 +107,23 @@ In order for this to work, this plugin should be the first one! (I Know too pick
     "spaceInJSXExpressionContainers": " ",
     // align the attributes with the first attribute (if the first attribute was kept on the same line as on the open tag)
     "alignWithFirstAttribute": true,
-    "htmlOptions": { // same as the ones passed to jsbeautifier.html
+    "htmlOptions": { // same as the ones passed to js-beautifier.html
       "brace_style": "collapse",
       "indent_char": " ",
-      //indentScripts: "keep",
       "indent_size": 2,
       "max_preserve_newlines": 2,
       "preserve_newlines": true
-      //unformatted: ["a", "sub", "sup", "b", "i", "u" ],
-      //wrapLineLength: 0
+      //wrap_line_length: 250
     }
   }
 }
 ```
 
-The `htmlOptions` are passed directly to [js-beautify](https://www.npmjs.com/package/js-beautify), please check his
+The `htmlOptions` are passed directly to [js-beautify](https://www.npmjs.com/package/js-beautify), please check its
 documentation for all the possible options.
 
 Or you can manually register your plugin:
+
 ```js
 // register plugin
 esformatter.register(require('esformatter-jsx'));
@@ -188,8 +142,8 @@ var output = esformatter.format(str);
 //-> output will now contain the formatted code
 ```
 
-See [esformatter](https://github.com/millermedeiros/esformatter) for more options and further usage.
+See [esformatter](https://github.com/millermedeiros/esformatter) for more options and further usage info.
 
 ## License
 
-MIT @[Roy Riojas](http://royriojas.com)
+[MIT](License)
