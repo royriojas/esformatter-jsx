@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v2.0.8
+- **Bug Fixes**
+  - properly format JSXExpression containers content. Fixes [#14](https://github.com/[object Object]/esformatter-jsx/issues/14) - [d8d21e7]( https://github.com/[object Object]/esformatter-jsx/commit/d8d21e7 ), [royriojas](https://github.com/royriojas), 06/08/2015 23:54:59
+
+    
 ## v2.0.7
 - **Bug Fixes**
   - nested JSXElements inside JSXExpressionContainers now are properly beautified - [3ef3595]( https://github.com/[object Object]/esformatter-jsx/commit/3ef3595 ), [royriojas](https://github.com/royriojas), 06/08/2015 17:35:14
