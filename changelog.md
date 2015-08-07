@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v2.0.9
+- **Bug Fixes**
+  - exclude identifiers from recursive formatting - [db23cd4]( https://github.com/[object Object]/esformatter-jsx/commit/db23cd4 ), [royriojas](https://github.com/royriojas), 07/08/2015 00:16:39
+
+    
 ## v2.0.8
 - **Bug Fixes**
   - properly format JSXExpression containers content. Fixes [#14](https://github.com/[object Object]/esformatter-jsx/issues/14) - [d8d21e7]( https://github.com/[object Object]/esformatter-jsx/commit/d8d21e7 ), [royriojas](https://github.com/royriojas), 06/08/2015 23:54:59
