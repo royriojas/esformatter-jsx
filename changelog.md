@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v2.0.10
+- **Bug Fixes**
+  - prevent other plugins from messing with the expression containers - [161de77]( https://github.com/[object Object]/esformatter-jsx/commit/161de77 ), [royriojas](https://github.com/royriojas), 07/08/2015 11:26:51
+
+    
 ## v2.0.9
 - **Bug Fixes**
   - exclude identifiers from recursive formatting - [db23cd4]( https://github.com/[object Object]/esformatter-jsx/commit/db23cd4 ), [royriojas](https://github.com/royriojas), 07/08/2015 00:16:39
