@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v2.0.11
+- **Bug Fixes**
+  - properly handle ObjectExpressions and ArrayExpressions inside JSXContainers - [53941aa]( https://github.com/[object Object]/esformatter-jsx/commit/53941aa ), [royriojas](https://github.com/royriojas), 12/08/2015 00:46:59
+
+    
 ## v2.0.10
 - **Bug Fixes**
   - prevent other plugins from messing with the expression containers - [161de77]( https://github.com/[object Object]/esformatter-jsx/commit/161de77 ), [royriojas](https://github.com/royriojas), 07/08/2015 11:26:51
@@ -38,9 +43,8 @@
 
     
 ## v2.0.4
-#### `/>`
 - **Bug Fixes**
-  - in the same of the last attribute - [e066931]( https://github.com/[object Object]/esformatter-jsx/commit/e066931 ), [royriojas](https://github.com/royriojas), 28/07/2015 17:34:19
+  - keep selfclosing char (`/>`) in the same of the last attribute - [e066931]( https://github.com/[object Object]/esformatter-jsx/commit/e066931 ), [royriojas](https://github.com/royriojas), 28/07/2015 17:34:19
 
     
 ## v2.0.3
