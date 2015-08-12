@@ -57,14 +57,14 @@
     "js-beautify": "^1.5.10"
   },
   "devDependencies": {
-    "changelogx": "^1.0.15",
+    "changelogx": "^1.0.18",
     "esbeautifier": "^3.2.0",
     "esformatter": "^0.7.2",
     "eslinter": "^2.0.6",
     "istanbul": "^0.3.17",
     "mocha-runner": "^1.0.8",
-    "precommit": "^1.1.0",
-    "prepush": "^3.0.4",
+    "precommit": "^1.1.5",
+    "prepush": "^3.1.4",
     "proxyquire": "^1.6.0",
     "read-json-sync": "^1.1.0",
     "watch-spawn": "^1.0.3"
