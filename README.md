@@ -8,6 +8,10 @@
 
 Live demo: [esformatter-jsx](http://requirebin.com/embed?gist=0d67452e01754269660f)
 
+### Usage with [JSFMT](https://github.com/ionutvmi/sublime-jsfmt) 
+
+check this [guide](https://github.com/royriojas/esformatter-jsx/wiki/Usage-with-jsfmt)
+
 ### best configuration
 
 If you're running into troubles with the formatting applied to your files I found this configuration to work the best:
