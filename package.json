@@ -53,7 +53,7 @@
   "peerDependencies": {},
   "dependencies": {
     "extend": "^2.0.1",
-    "falafel-espree": "^1.1.0",
+    "falafel-espree": "https://github.com/royriojas/falafel-espree/tarball/master",
     "js-beautify": "^1.5.10"
   },
   "devDependencies": {
