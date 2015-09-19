@@ -1,5 +1,14 @@
 
 # esformatter-jsx - Changelog
+## v2.1.1
+- **Enhancements**
+  - support for spread operator - [b4a36d1]( https://github.com/[object Object]/esformatter-jsx/commit/b4a36d1 ), [royriojas](https://github.com/royriojas), 18/09/2015 01:28:16
+
+    
+- **Documentation**
+  - Update Readme. Fixes [#7](https://github.com/[object Object]/esformatter-jsx/issues/7) - [323a2ec]( https://github.com/[object Object]/esformatter-jsx/commit/323a2ec ), [Roy Riojas](https://github.com/Roy Riojas), 30/08/2015 01:40:01
+
+    
 ## v2.1.0
 - **Enhancements**
   - support for spread operator - [2c136b4]( https://github.com/[object Object]/esformatter-jsx/commit/2c136b4 ), [royriojas](https://github.com/royriojas), 18/09/2015 01:26:41
