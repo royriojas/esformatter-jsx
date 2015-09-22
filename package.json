@@ -76,9 +76,9 @@
       "Generated Changelog"
     ],
     "issueIDRegExp": "#(\\d+)",
-    "commitURL": "https://github.com/[object Object]/esformatter-jsx/commit/{0}",
+    "commitURL": "https://github.com/royriojas/esformatter-jsx/commit/{0}",
     "authorURL": "https://github.com/{0}",
-    "issueIDURL": "https://github.com/[object Object]/esformatter-jsx/issues/{0}",
+    "issueIDURL": "https://github.com/royriojas/esformatter-jsx/issues/{0}",
     "projectName": "esformatter-jsx"
   }
 }
