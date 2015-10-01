@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v2.1.4
+- **Enhancements**
+  - properly ignore blocks with ignore block comments - [b8f5c52]( https://github.com/royriojas/esformatter-jsx/commit/b8f5c52 ), [royriojas](https://github.com/royriojas), 01/10/2015 12:24:18
+
+    
 ## v2.1.3
 - **Enhancements**
   - ignore blocks using esformatter-ignore - [460d6e8]( https://github.com/royriojas/esformatter-jsx/commit/460d6e8 ), [royriojas](https://github.com/royriojas), 01/10/2015 01:40:21
