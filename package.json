@@ -52,7 +52,7 @@
   ],
   "peerDependencies": {},
   "dependencies": {
-    "esformatter-ignore": "^0.1.1",
+    "esformatter-ignore": "^0.1.2",
     "extend": "^2.0.1",
     "falafel-espree": "https://github.com/royriojas/falafel-espree/tarball/master",
     "js-beautify": "^1.5.10"
@@ -61,7 +61,7 @@
     "changelogx": "^1.0.18",
     "esbeautifier": "^3.2.0",
     "esformatter": "https://github.com/royriojas/esformatter/tarball/master",
-    "eslinter": "^2.0.6",
+    "eslinter": "^3.2.0",
     "istanbul": "^0.3.17",
     "mocha-runner": "^1.0.8",
     "precommit": "^1.1.5",
