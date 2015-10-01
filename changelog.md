@@ -1,5 +1,11 @@
 
 # esformatter-jsx - Changelog
+## v2.1.3
+- **Enhancements**
+  - ignore blocks using esformatter-ignore - [460d6e8]( https://github.com/royriojas/esformatter-jsx/commit/460d6e8 ), [royriojas](https://github.com/royriojas), 01/10/2015 01:40:21
+
+    Required because espree still does not recognize some of the new fancy syntax of ES6 and ES7 and that makes it break badly when trying to beautify new files
+    
 ## v2.1.2
 - **Bug Fixes**
   - wrong changelogx section - [a047b49]( https://github.com/royriojas/esformatter-jsx/commit/a047b49 ), [royriojas](https://github.com/royriojas), 21/09/2015 23:33:23
