@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v2.3.2
+- **Features**
+  - Support SpreadProperties outside of JSX blocks. Fixes [#27](https://github.com/royriojas/esformatter-jsx/issues/27) - [2ad355d]( https://github.com/royriojas/esformatter-jsx/commit/2ad355d ), [royriojas](https://github.com/royriojas), 02/10/2015 01:34:20
+
+    
 ## v2.3.1
 - **Features**
   - Support for decorators and class properties. Fixes [#26](https://github.com/royriojas/esformatter-jsx/issues/26) - [8d546ef]( https://github.com/royriojas/esformatter-jsx/commit/8d546ef ), [royriojas](https://github.com/royriojas), 02/10/2015 01:02:16
