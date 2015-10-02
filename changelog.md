@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v2.2.0
+- **Refactoring**
+  - use acorn-babel for more es6, es7 features - [6043e32]( https://github.com/royriojas/esformatter-jsx/commit/6043e32 ), [royriojas](https://github.com/royriojas), 01/10/2015 21:38:15
+
+    
 ## v2.1.4
 - **Enhancements**
   - properly ignore blocks with ignore block comments - [b8f5c52]( https://github.com/royriojas/esformatter-jsx/commit/b8f5c52 ), [royriojas](https://github.com/royriojas), 01/10/2015 12:24:18
