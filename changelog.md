@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v2.3.1
+- **Features**
+  - Support for decorators and class properties. Fixes [#26](https://github.com/royriojas/esformatter-jsx/issues/26) - [8d546ef]( https://github.com/royriojas/esformatter-jsx/commit/8d546ef ), [royriojas](https://github.com/royriojas), 02/10/2015 01:02:16
+
+    
 ## v2.3.0
 - **Features**
   - support decorators and static props - [e6e1dc2]( https://github.com/royriojas/esformatter-jsx/commit/e6e1dc2 ), [royriojas](https://github.com/royriojas), 02/10/2015 00:25:39
