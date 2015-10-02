@@ -1,5 +1,13 @@
 
 # esformatter-jsx - Changelog
+## v2.3.0
+- **Features**
+  - support decorators and static props - [e6e1dc2]( https://github.com/royriojas/esformatter-jsx/commit/e6e1dc2 ), [royriojas](https://github.com/royriojas), 02/10/2015 00:25:39
+
+    Please note that `static props` are just ignored from beautification all together for now
+    
+    It shouldn't be difficult to format it, but for now it is just OK
+    
 ## v2.2.0
 - **Refactoring**
   - use acorn-babel for more es6, es7 features - [6043e32]( https://github.com/royriojas/esformatter-jsx/commit/6043e32 ), [royriojas](https://github.com/royriojas), 01/10/2015 21:38:15
