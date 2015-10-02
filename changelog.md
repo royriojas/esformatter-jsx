@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v2.3.3
+- **Bug Fixes**
+  - Issue with the parser returning negative indexes - [eafe7bf]( https://github.com/royriojas/esformatter-jsx/commit/eafe7bf ), [royriojas](https://github.com/royriojas), 02/10/2015 02:13:17
+
+    
 ## v2.3.2
 - **Features**
   - Support SpreadProperties outside of JSX blocks. Fixes [#27](https://github.com/royriojas/esformatter-jsx/issues/27) - [2ad355d]( https://github.com/royriojas/esformatter-jsx/commit/2ad355d ), [royriojas](https://github.com/royriojas), 02/10/2015 01:34:20
