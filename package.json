@@ -52,7 +52,7 @@
   ],
   "peerDependencies": {},
   "dependencies": {
-    "acorn-babel": "^0.11.1-38",
+    "babel-core": "^5.8.25",
     "esformatter-ignore": "^0.1.2",
     "extend": "^2.0.1",
     "falafel": "^1.2.0",
