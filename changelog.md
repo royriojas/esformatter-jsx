@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v2.3.4
+- **Bug Fixes**
+  - support `ExportNamedDeclaration`. Fixes [#28](https://github.com/royriojas/esformatter-jsx/issues/28) - [b968dbf]( https://github.com/royriojas/esformatter-jsx/commit/b968dbf ), [royriojas](https://github.com/royriojas), 06/10/2015 19:39:36
+
+    
 ## v2.3.3
 - **Bug Fixes**
   - Issue with the parser returning negative indexes - [eafe7bf]( https://github.com/royriojas/esformatter-jsx/commit/eafe7bf ), [royriojas](https://github.com/royriojas), 02/10/2015 02:13:17
