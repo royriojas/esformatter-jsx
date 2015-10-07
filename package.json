@@ -61,7 +61,7 @@
   "devDependencies": {
     "changelogx": "^1.0.18",
     "esbeautifier": "^3.2.0",
-    "esformatter": "https://github.com/royriojas/esformatter/tarball/master",
+    "esformatter": "https://github.com/royriojas/esformatter/tarball/a4a52d8",
     "eslinter": "^3.2.0",
     "istanbul": "^0.3.17",
     "mocha-runner": "^1.0.8",
