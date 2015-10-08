@@ -53,7 +53,7 @@
   "peerDependencies": {},
   "dependencies": {
     "babel-core": "^5.8.25",
-    "esformatter-ignore": "^0.1.2",
+    "esformatter-ignore": "^0.1.3",
     "extend": "^2.0.1",
     "falafel": "^1.2.0",
     "js-beautify": "^1.5.10"
