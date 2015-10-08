@@ -1,5 +1,14 @@
 
 # esformatter-jsx - Changelog
+## v2.3.5
+- **Bug Fixes**
+  - properly format ES7 Decorators. Fixes [#29](https://github.com/royriojas/esformatter-jsx/issues/29) - [8f124fd]( https://github.com/royriojas/esformatter-jsx/commit/8f124fd ), [royriojas](https://github.com/royriojas), 08/10/2015 13:43:53
+
+    
+- **Build Scripts Changes**
+  - Update esformatter-ignore to latest to properly ignore lines that have no empty spaces at the beginning - [e0ce5f3]( https://github.com/royriojas/esformatter-jsx/commit/e0ce5f3 ), [royriojas](https://github.com/royriojas), 08/10/2015 13:32:31
+
+    
 ## v2.3.4
 - **Bug Fixes**
   - support `ExportNamedDeclaration`. Fixes [#28](https://github.com/royriojas/esformatter-jsx/issues/28) - [b968dbf]( https://github.com/royriojas/esformatter-jsx/commit/b968dbf ), [royriojas](https://github.com/royriojas), 06/10/2015 19:39:36
