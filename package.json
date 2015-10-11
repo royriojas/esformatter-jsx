@@ -55,7 +55,7 @@
     "babel-core": "^5.8.25",
     "esformatter-ignore": "^0.1.3",
     "extend": "^2.0.1",
-    "falafel": "^1.2.0",
+    "falafel": "https://github.com/royriojas/fresh-falafel/tarball/fix-parse-issue",
     "js-beautify": "^1.5.10"
   },
   "devDependencies": {
