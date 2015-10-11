@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v2.3.6
+- **Bug Fixes**
+  - require acorn only if no other parser was set. Fixes [#31](https://github.com/royriojas/esformatter-jsx/issues/31) - [4ae4479]( https://github.com/royriojas/esformatter-jsx/commit/4ae4479 ), [royriojas](https://github.com/royriojas), 11/10/2015 12:55:10
+
+    
 ## v2.3.5
 - **Bug Fixes**
   - properly format ES7 Decorators. Fixes [#29](https://github.com/royriojas/esformatter-jsx/issues/29) - [8f124fd]( https://github.com/royriojas/esformatter-jsx/commit/8f124fd ), [royriojas](https://github.com/royriojas), 08/10/2015 13:43:53
