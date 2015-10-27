@@ -1,3 +1,18 @@
+async function getByEmailAndPassword({email, password}) {
+  const isValid = await isValidEmail(email);
+
+  if (!isValid) {
+    return {
+      token: 'INVALID_EMAIL'
+    };
+  }
+
+  const user = await getUserByEmail(email);
+  if (!user) {
+    return user;
+  }
+}
+
 export async function getByEmailAndPassword(email, password) {
   const isValid = await validateEmail(email);
 
