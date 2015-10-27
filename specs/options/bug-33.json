@@ -1,0 +1,12 @@
+{
+  "jsx": {
+    "attrsOnSameLineAsTag": false,
+    "maxAttrsOnTag": 1,
+    "firstAttributeOnSameLine": false,
+    "alignWithFirstAttribute": true,
+    "htmlOptions": {
+      "max_preserve_newlines": 0,
+      "preserve_newlines": true
+    }
+  }
+}
