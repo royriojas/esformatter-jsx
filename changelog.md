@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v2.3.7
+- **Bug Fixes**
+  - support async/await - [9e06f36]( https://github.com/royriojas/esformatter-jsx/commit/9e06f36 ), [royriojas](https://github.com/royriojas), 26/10/2015 21:21:21
+
+    
 ## v2.3.6
 - **Bug Fixes**
   - require acorn only if no other parser was set. Fixes [#31](https://github.com/royriojas/esformatter-jsx/issues/31) - [4ae4479]( https://github.com/royriojas/esformatter-jsx/commit/4ae4479 ), [royriojas](https://github.com/royriojas), 11/10/2015 12:55:10
