@@ -1,5 +1,13 @@
 
 # esformatter-jsx - Changelog
+## v2.3.9
+- **Bug Fixes**
+  - properly support export declarations, even the ones that babel allows. Fixes [#34](https://github.com/royriojas/esformatter-jsx/issues/34) - [cc69735]( https://github.com/royriojas/esformatter-jsx/commit/cc69735 ), [royriojas](https://github.com/royriojas), 29/10/2015 12:05:29
+
+    
+  - support inline decorators. Fixes [#35](https://github.com/royriojas/esformatter-jsx/issues/35) - [97e4a28]( https://github.com/royriojas/esformatter-jsx/commit/97e4a28 ), [royriojas](https://github.com/royriojas), 29/10/2015 11:02:51
+
+    
 ## v2.3.8
 - **Bug Fixes**
   - support async/await. Fixes [#33](https://github.com/royriojas/esformatter-jsx/issues/33) - [20d4686]( https://github.com/royriojas/esformatter-jsx/commit/20d4686 ), [royriojas](https://github.com/royriojas), 26/10/2015 22:29:51
