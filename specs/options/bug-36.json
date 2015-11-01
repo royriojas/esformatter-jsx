@@ -1,0 +1,27 @@
+{
+    "indent": {
+        "value": "\t"
+    },
+    "jsx": {
+        "alignWithFirstAttribute": false,
+        "attrsOnSameLineAsTag": false,
+        "firstAttributeOnSameLine": true,
+        "formatJSX": true,
+        "htmlOptions": {
+            "brace_style": "collapse",
+            "indent_char": "\t",
+            "indent_size": 1
+        },
+        "maxAttrsOnTag": 3,
+        "spaceInJSXExpressionContainers": " "
+    },
+    "lineBreak": {
+        "after": {
+            "ObjectPatternComma": 1,
+            "ObjectPatternOpeningBrace": 1
+        },
+        "before": {
+            "ObjectPatternClosingBrace": 1
+        }
+    }
+}
