@@ -1,5 +1,14 @@
 
 # esformatter-jsx - Changelog
+## v3.0.0
+- **Enhancements**
+  - Use babylon directly instead of `babel-core` Fixes [#38](https://github.com/royriojas/esformatter-jsx/issues/38) - [b4498f3]( https://github.com/royriojas/esformatter-jsx/commit/b4498f3 ), [royriojas](https://github.com/royriojas), 15/11/2015 14:14:59
+
+    
+- **Bug Fixes**
+  - use babylon directly instead of thru babel - [bb595fb]( https://github.com/royriojas/esformatter-jsx/commit/bb595fb ), [royriojas](https://github.com/royriojas), 15/11/2015 14:14:59
+
+    
 ## v2.3.11
 - **Build Scripts Changes**
   - upgrade babel-core. Fix [#38](https://github.com/royriojas/esformatter-jsx/issues/38) - [4d75188]( https://github.com/royriojas/esformatter-jsx/commit/4d75188 ), [royriojas](https://github.com/royriojas), 14/11/2015 19:54:55
