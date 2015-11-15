@@ -55,13 +55,13 @@
     "babel-core": "^5.8.25",
     "esformatter-ignore": "^0.1.3",
     "extend": "^2.0.1",
-    "falafel": "https://github.com/royriojas/fresh-falafel/tarball/fix-parse-issue",
+    "fresh-falafel": "^1.2.0",
     "js-beautify": "^1.5.10"
   },
   "devDependencies": {
     "changelogx": "^1.0.18",
     "esbeautifier": "^3.2.0",
-    "esformatter": "https://github.com/royriojas/esformatter/tarball/a4a52d8",
+    "esformatter": "^0.8.1",
     "eslinter": "^3.2.0",
     "istanbul": "^0.3.17",
     "mocha-runner": "^1.0.8",
