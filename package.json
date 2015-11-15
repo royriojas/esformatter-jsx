@@ -52,7 +52,7 @@
   ],
   "peerDependencies": {},
   "dependencies": {
-    "babel-core": "^5.8.34",
+    "babylon": "^6.1.21",
     "esformatter-ignore": "^0.1.3",
     "extend": "^2.0.1",
     "fresh-falafel": "^1.2.0",
