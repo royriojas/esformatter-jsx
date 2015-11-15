@@ -1,5 +1,14 @@
 
 # esformatter-jsx - Changelog
+## v2.3.11
+- **Build Scripts Changes**
+  - upgrade babel-core. Fix [#38](https://github.com/royriojas/esformatter-jsx/issues/38) - [4d75188]( https://github.com/royriojas/esformatter-jsx/commit/4d75188 ), [royriojas](https://github.com/royriojas), 14/11/2015 19:54:55
+
+    
+- **Bug Fixes**
+  - Remove non npm dependencies. Fixes [#40](https://github.com/royriojas/esformatter-jsx/issues/40) - [0ab0a2a]( https://github.com/royriojas/esformatter-jsx/commit/0ab0a2a ), [royriojas](https://github.com/royriojas), 14/11/2015 18:53:02
+
+    
 ## v2.3.10
 - **Bug Fixes**
   - Properly format code that contains a Bind Expression. Fixes [#39](https://github.com/royriojas/esformatter-jsx/issues/39) - [5e3f334]( https://github.com/royriojas/esformatter-jsx/commit/5e3f334 ), [royriojas](https://github.com/royriojas), 13/11/2015 03:42:14
