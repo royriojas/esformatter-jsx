@@ -1,5 +1,5 @@
 import knex from 'knex';
-import KnexSchemaBuilder from 'knex-schema';
+import    KnexSchemaBuilder from 'knex-schema';
 
 export default class DatabaseConnection {
   constructor( config, schema ) {
@@ -34,14 +34,15 @@ export default class DatabaseConnection {
     }
 
     return onlyRow[ onlyRowKeys[ 0 ] ];
+/*this comment should be in the right place*/
   }
-
-  async executeMigrationsAsync() {
+async executeMigrationsAsync() {
     const schemaBuilder = new KnexSchemaBuilder( this.connection );
 
-    await schemaBuilder.sync( this.schema );
-    await schemaBuilder.populate( this.schema );
-    await this.connection.migrate.latest();
+await schemaBuilder.sync( this.schema );
+await schemaBuilder.populate( this.schema );
+await this.connection.migrate.latest();
+// this comment should be in the right place
   }
 
 
