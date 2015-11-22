@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v4.0.4
+- **Build Scripts Changes**
+  - Use the latest esformatter for the tests - [af472da]( https://github.com/royriojas/esformatter-jsx/commit/af472da ), [Roy Riojas](https://github.com/Roy Riojas), 22/11/2015 14:32:11
+
+    
 ## v4.0.3
 - **Bug Fixes**
   - Proper fix for [#41](https://github.com/royriojas/esformatter-jsx/issues/41). Properly handle the async/await in class methods - [ed76453]( https://github.com/royriojas/esformatter-jsx/commit/ed76453 ), [Roy Riojas](https://github.com/Roy Riojas), 22/11/2015 14:31:01
