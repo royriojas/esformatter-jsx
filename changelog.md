@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v4.0.0
+- **Bug Fixes**
+  - Properly format blocks of code containing async/await tokens. Fixes [#41](https://github.com/royriojas/esformatter-jsx/issues/41) - [6a0e044]( https://github.com/royriojas/esformatter-jsx/commit/6a0e044 ), [Roy Riojas](https://github.com/Roy Riojas), 22/11/2015 13:06:19
+
+    
 ## v3.0.0
 - **Enhancements**
   - Use babylon directly instead of `babel-core` Fixes [#38](https://github.com/royriojas/esformatter-jsx/issues/38) - [b4498f3]( https://github.com/royriojas/esformatter-jsx/commit/b4498f3 ), [royriojas](https://github.com/royriojas), 15/11/2015 14:14:59
@@ -114,11 +119,6 @@
     
 - **Documentation**
   - Update Readme. Fixes [#7](https://github.com/royriojas/esformatter-jsx/issues/7) - [323a2ec]( https://github.com/royriojas/esformatter-jsx/commit/323a2ec ), [Roy Riojas](https://github.com/Roy Riojas), 29/08/2015 23:40:01
-
-    
-## v2.1.0
-- **Enhancements**
-  - support for spread operator - [2c136b4]( https://github.com/royriojas/esformatter-jsx/commit/2c136b4 ), [royriojas](https://github.com/royriojas), 17/09/2015 23:26:41
 
     
 ## v2.0.11
