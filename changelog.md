@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v4.0.3
+- **Bug Fixes**
+  - Proper fix for [#41](https://github.com/royriojas/esformatter-jsx/issues/41). Properly handle the async/await in class methods - [ed76453]( https://github.com/royriojas/esformatter-jsx/commit/ed76453 ), [Roy Riojas](https://github.com/Roy Riojas), 22/11/2015 14:31:01
+
+    
 ## v4.0.2
 - **Bug Fixes**
   - Properly format code with async token on function expressions. Fixes [#42](https://github.com/royriojas/esformatter-jsx/issues/42) - [5715fcb]( https://github.com/royriojas/esformatter-jsx/commit/5715fcb ), [Roy Riojas](https://github.com/Roy Riojas), 22/11/2015 14:09:44
