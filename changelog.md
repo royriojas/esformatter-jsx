@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v4.0.2
+- **Bug Fixes**
+  - Properly format code with async token on function expressions. Fixes [#42](https://github.com/royriojas/esformatter-jsx/issues/42) - [5715fcb]( https://github.com/royriojas/esformatter-jsx/commit/5715fcb ), [Roy Riojas](https://github.com/Roy Riojas), 22/11/2015 14:09:44
+
+    
 ## v4.0.1
 - **Bug Fixes**
   - Properly format blocks of code containing comments at the end of a function or method body. - [1da006e]( https://github.com/royriojas/esformatter-jsx/commit/1da006e ), [Roy Riojas](https://github.com/Roy Riojas), 22/11/2015 13:33:23
