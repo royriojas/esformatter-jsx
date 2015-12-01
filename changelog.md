@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v4.0.6
+- **Bug Fixes**
+  - properly format code with comments in decorators. Fix [#45](https://github.com/royriojas/esformatter-jsx/issues/45) - [ac2dc2d]( https://github.com/royriojas/esformatter-jsx/commit/ac2dc2d ), [royriojas](https://github.com/royriojas), 01/12/2015 14:39:24
+
+    
 ## v4.0.5
 - **Bug Fixes**
   - support async ArrowFunctionExpressions - [8ab19cb]( https://github.com/royriojas/esformatter-jsx/commit/8ab19cb ), [royriojas](https://github.com/royriojas), 30/11/2015 14:00:17
