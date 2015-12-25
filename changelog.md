@@ -1,5 +1,38 @@
 
 # esformatter-jsx - Changelog
+## v4.1.0
+- **Features**
+  - Add option to avoid formatting of JSXExpressions. Fixes [#48](https://github.com/royriojas/esformatter-jsx/issues/48) - [6ce091b]( https://github.com/royriojas/esformatter-jsx/commit/6ce091b ), [royriojas](https://github.com/royriojas), 25/12/2015 07:12:53
+
+    This commit adds a new option `formatJSXExpressions`. The default value is true.
+    
+    In case you need to stop this behavior, for example when using a plugin that modify the code like the `esformatter-semicolons`.
+    
+    You should opt out of the formatting of the JSXExpressions to avoid potentially risky issues
+    
+    ```javascript
+    // example of the options
+    {
+      "jsx": {
+        "formatJSX": true,
+        "attrsOnSameLineAsTag": true,
+        "maxAttrsOnTag": 3,
+        "firstAttributeOnSameLine": true,
+        "spaceInJSXExpressionContainers": " ",
+        "alignWithFirstAttribute": false,
+        // default is true, setting it to false JSXExpressions won't be recursively formatted
+        "formatJSXExpressions": false,
+        "htmlOptions": {
+          "brace_style": "collapse",
+          "indent_char": " ",
+          "indent_size": 2,
+          "max_preserve_newlines": 2,
+          "preserve_newlines": true
+        }
+      }
+    }
+    ```
+    
 ## v4.0.6
 - **Bug Fixes**
   - properly format code with comments in decorators. Fix [#45](https://github.com/royriojas/esformatter-jsx/issues/45) - [ac2dc2d]( https://github.com/royriojas/esformatter-jsx/commit/ac2dc2d ), [royriojas](https://github.com/royriojas), 01/12/2015 14:39:24
