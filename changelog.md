@@ -1,5 +1,11 @@
 
 # esformatter-jsx - Changelog
+## v4.1.1
+- **Other changes**
+  - Fix the version of babylon in use - [1aa3637]( https://github.com/royriojas/esformatter-jsx/commit/1aa3637 ), [Jess Telford](https://github.com/Jess Telford), 17/01/2016 21:39:35
+
+    To avoid running into this bug: https://phabricator.babeljs.io/T6930
+    
 ## v4.1.0
 - **Features**
   - Add option to avoid formatting of JSXExpressions. Fixes [#48](https://github.com/royriojas/esformatter-jsx/issues/48) - [6ce091b]( https://github.com/royriojas/esformatter-jsx/commit/6ce091b ), [royriojas](https://github.com/royriojas), 25/12/2015 07:12:53
