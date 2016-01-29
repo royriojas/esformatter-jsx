@@ -1,5 +1,14 @@
 
 # esformatter-jsx - Changelog
+## v4.1.2
+- **Bug Fixes**
+  - lock esformatter dependency - [a6cf823]( https://github.com/royriojas/esformatter-jsx/commit/a6cf823 ), [royriojas](https://github.com/royriojas), 29/01/2016 17:37:22
+
+    
+- **Other changes**
+  - Fix typo in README.md - [932e122]( https://github.com/royriojas/esformatter-jsx/commit/932e122 ), [Dale Jefferson](https://github.com/Dale Jefferson), 29/01/2016 16:43:02
+
+    
 ## v4.1.1
 - **Other changes**
   - Fix the version of babylon in use - [1aa3637]( https://github.com/royriojas/esformatter-jsx/commit/1aa3637 ), [Jess Telford](https://github.com/Jess Telford), 17/01/2016 21:39:35
