@@ -19,7 +19,7 @@ If you're running into troubles with the formatting applied to your files I foun
 ```javascript
 {
   "jsx": {
-    "formatJSX": true, //Duh! that's the deafault
+    "formatJSX": true, //Duh! that's the default
     "attrsOnSameLineAsTag": false, // move each attribute to its own line
     "maxAttrsOnTag": 3, // if lower or equal than 3 attributes, they will be kept on a single line
     "firstAttributeOnSameLine": true, // keep the first attribute in the same line as the tag
