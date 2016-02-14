@@ -65,8 +65,8 @@
     "eslinter": "^3.2.0",
     "istanbul": "^0.3.17",
     "mocha-runner": "^1.0.8",
-    "precommit": "^1.1.5",
-    "prepush": "^3.1.4",
+    "precommit": "^1.2.0",
+    "prepush": "^3.1.8",
     "proxyquire": "^1.6.0",
     "read-json-sync": "^1.1.0",
     "watch-spawn": "^1.0.3"
