@@ -46,7 +46,7 @@ describe( 'esformatter-jsx', function () {
         //console.log( '\n\n', actual, '\n\n' );
         //fs.writeFileSync('./specs/expected/' + path.basename(file), actual);
 
-        expect( expected ).to.equal( actual, 'file comparison failed: ' + file );
+        expect( actual ).to.equal( expected, 'file comparison failed: ' + file );
 
       } );
     } );
