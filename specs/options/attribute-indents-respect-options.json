@@ -1,0 +1,11 @@
+{
+  "jsx": {
+    "attrsOnSameLineAsTag": false,
+    "firstAttributeOnSameLine": true,
+    "alignWithFirstAttribute": false,
+    "htmlOptions": {
+	  	"indent_size": 4,
+	  	"indent_char": " "
+	  }
+  }
+}
