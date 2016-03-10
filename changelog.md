@@ -1,5 +1,28 @@
 
 # esformatter-jsx - Changelog
+## v4.1.4
+- **Bug Fixes**
+  - Remove lint warning - [1a1e360]( https://github.com/royriojas/esformatter-jsx/commit/1a1e360 ), [Roy Riojas](https://github.com/Roy Riojas), 09/03/2016 23:44:19
+
+    
+- **Other changes**
+  - Added tests, reversed assertion order - [20904fc]( https://github.com/royriojas/esformatter-jsx/commit/20904fc ), [R](https://github.com/R), 08/03/2016 21:35:48
+
+    Added tests for new functionality. Reversed mocha test assertion order
+    so that “expected” in console aligns with “expected” files and actual
+    in console aligns with formatted code.
+    
+- **undefined**
+  - Added default values for attr indentation - [0e89c2c]( https://github.com/royriojas/esformatter-jsx/commit/0e89c2c ), [R](https://github.com/R), 24/02/2016 12:32:42
+
+    Default values if no indent options specified in htmlOptions
+    
+  - attribute indentation should respect options - [f498454]( https://github.com/royriojas/esformatter-jsx/commit/f498454 ), [R](https://github.com/R), 24/02/2016 12:29:22
+
+    Previously, the attributes would indent either with the first attribute
+    or 2 spaces. Now, it will indent either with the first attribute or by
+    the number of spaces defined in htmlOptions.
+    
 ## v4.1.3
 - **Bug Fixes**
   - properly format object methods. Fixes [#54](https://github.com/royriojas/esformatter-jsx/issues/54) - [cbc468d]( https://github.com/royriojas/esformatter-jsx/commit/cbc468d ), [Roy Riojas](https://github.com/Roy Riojas), 13/02/2016 19:44:10
