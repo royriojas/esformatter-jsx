@@ -44,7 +44,7 @@ describe( 'esformatter-jsx', function () {
         var actual = esformatter.format( input, opts );
         var expected = readFile( 'expected', file );
         //console.log( '\n\n', actual, '\n\n' );
-        //fs.writeFileSync('./specs/expected/' + path.basename(file), actual);
+        // fs.writeFileSync('./specs/expected/' + path.basename(file), actual);
 
         expect( actual ).to.equal( expected, 'file comparison failed: ' + file );
 

@@ -9,16 +9,16 @@ import { WidgetForm } from 'components';
 
 @connect(
   state => ({
-      widgets: state.widgets.data,
-      editing: state.widgets.editing,
-      error: state.widgets.error,
-      loading: state.widgets.loading
+    widgets: state.widgets.data,
+    editing: state.widgets.editing,
+    error: state.widgets.error,
+    loading: state.widgets.loading
   }),
   dispatch => ({
-      ...bindActionCreators({
-        ...widgetActions,
-        initializeWithKey
-      }, dispatch)
+    ...bindActionCreators({
+      ...widgetActions,
+      initializeWithKey
+    }, dispatch)
   })
 )
 export default class Widgets extends Component {
@@ -96,31 +96,31 @@ export default class Widgets extends Component {
             </thead>
             <tbody>
               { widgets.map((widget) => editing[widget.id] ?
-                    <WidgetForm
-                                formKey={ String(widget.id) }
-                                key={ String(widget.id) }
-                                initialValues={ widget } /> :
-                    <tr key={ widget.id }>
-                      <td className={ styles.idCol }>
-                        { widget.id }
-                      </td>
-                      <td className={ styles.colorCol }>
-                        { widget.color }
-                      </td>
-                      <td className={ styles.sprocketsCol }>
-                        { widget.sprocketCount }
-                      </td>
-                      <td className={ styles.ownerCol }>
-                        { widget.owner }
-                      </td>
-                      <td className={ styles.buttonCol }>
-                        <button
-                                className="btn btn-primary"
-                                onClick={ ::this.handleEdit(widget) }>
-                          <i className="fa fa-pencil" /> Edit
-                        </button>
-                      </td>
-                    </tr>) }
+                  <WidgetForm
+                              formKey={ String(widget.id) }
+                              key={ String(widget.id) }
+                              initialValues={ widget } /> :
+                  <tr key={ widget.id }>
+                    <td className={ styles.idCol }>
+                      { widget.id }
+                    </td>
+                    <td className={ styles.colorCol }>
+                      { widget.color }
+                    </td>
+                    <td className={ styles.sprocketsCol }>
+                      { widget.sprocketCount }
+                    </td>
+                    <td className={ styles.ownerCol }>
+                      { widget.owner }
+                    </td>
+                    <td className={ styles.buttonCol }>
+                      <button
+                              className="btn btn-primary"
+                              onClick={ ::this.handleEdit(widget) }>
+                        <i className="fa fa-pencil" /> Edit
+                      </button>
+                    </td>
+                  </tr>) }
             </tbody>
           </table> }
       </div>

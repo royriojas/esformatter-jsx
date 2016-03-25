@@ -4,7 +4,7 @@ import { increment } from 'redux/modules/counter';
 
 @connectMultireducer(
   state => ({
-      count: state.count
+    count: state.count
   }),
   {
     increment
