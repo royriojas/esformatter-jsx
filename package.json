@@ -64,7 +64,7 @@
     "esformatter": "^0.9.2",
     "eslinter": "^3.2.0",
     "istanbul": "^0.3.17",
-    "mocha-runner": "^1.0.8",
+    "mocha-runner": "^1.1.2",
     "precommit": "^1.2.0",
     "prepush": "^3.1.8",
     "proxyquire": "^1.6.0",

@@ -1,0 +1,7 @@
+{
+  "ui": "bdd",
+  "bail": false,
+  "reporter": "spec",
+  "colors": true,
+  "timeout": 4000
+}

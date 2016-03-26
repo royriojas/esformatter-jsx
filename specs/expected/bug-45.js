@@ -8,7 +8,7 @@ export default class Form extends Component {
   render({memberTypes}) {
 
     return (
-      <div style={ {  minWidth: '400px'} }>
+      <div style={ { minWidth: '400px' } }>
         <h4>New Title</h4>
         { /* Modal Form With Fields */ }
       </div>

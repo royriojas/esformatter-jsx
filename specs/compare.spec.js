@@ -32,9 +32,9 @@ describe( 'esformatter-jsx', function () {
   describe( 'format jsx blocks', function () {
     var files = fs.readdirSync( './specs/fixtures/' );
 
-    //    files = files.filter( function ( file ) {
-    //      return file.match( /lot-of-text/ );
-    //    } );
+    // files = files.filter( function ( file ) {
+    //   return file.match( /bug-30/ );
+    // } );
 
     files.forEach( function ( file ) {
       it( 'should transform fixture ' + file + ' and be equal expected file', function () {

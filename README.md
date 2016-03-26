@@ -8,7 +8,7 @@
 
 Live demo: [esformatter-jsx](http://requirebin.com/embed?gist=0d67452e01754269660f)
 
-### Usage with [JSFMT](https://github.com/ionutvmi/sublime-jsfmt) 
+### Usage with [JSFMT](https://github.com/ionutvmi/sublime-jsfmt)
 
 check this [guide](https://github.com/royriojas/esformatter-jsx/wiki/Usage-with-jsfmt)
 
@@ -23,6 +23,8 @@ If you're running into troubles with the formatting applied to your files I foun
     "attrsOnSameLineAsTag": false, // move each attribute to its own line
     "maxAttrsOnTag": 3, // if lower or equal than 3 attributes, they will be kept on a single line
     "firstAttributeOnSameLine": true, // keep the first attribute in the same line as the tag
+    "formatJSXExpressions": true, // default true, if false jsxExpressions won't be recursively formatted
+    "JSXExpressionsSingleLine": true, // default true, if false the JSXExpressions might span several lines
     "alignWithFirstAttribute": false, // do not align attributes with the first tag
     "spaceInJSXExpressionContainers": " ", // default to one space. Make it empty if you don't like spaces between JSXExpressionContainers
     "htmlOptions": {
@@ -96,6 +98,12 @@ In order for this to work, this plugin should be the first one! (I Know too pick
   ],
   // this is the section this plugin will use to store the settings for the jsx formatting
   "jsx": {
+    // whether to recursively format jsx expressions with esformatter
+    // set this to false if you don't want JSXExpressions to be formatted recursively, like when using problematic plugins
+    "formatJSXExpressions": true,
+    // By default ObjectExpression and ArrayExpression in JSXExpressions are inlined,
+    // if false, the Expression might expand several lines
+    "JSXExpressionsSingleLine": true,
     // by default is true if set to false it works the same as esformatter-jsx-ignore
     "formatJSX": true,
     // keep the node attributes on the same line as the open tag. Default is true.

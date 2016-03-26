@@ -1,0 +1,10 @@
+{
+  "jsx": {
+    "attrsOnSameLineAsTag": false,
+    "maxAttrsOnTag": 1,
+    "formatJSXExpressions": true,
+    "JSXExpressionsSingleLine": true,
+    "firstAttributeOnSameLine": false,
+    "alignWithFirstAttribute": true
+  }
+}
