@@ -1,5 +1,30 @@
 
 # esformatter-jsx - Changelog
+## v5.0.1
+- **Bug Fixes**
+  - test now verify code passes beautification and lint - [44fe581]( https://github.com/royriojas/esformatter-jsx/commit/44fe581 ), [Roy Riojas](https://github.com/Roy Riojas), 26/04/2016 18:07:06
+
+    
+  - Fix style and lint validation - [2078bae]( https://github.com/royriojas/esformatter-jsx/commit/2078bae ), [Roy Riojas](https://github.com/Roy Riojas), 26/04/2016 18:01:50
+
+    
+- **Other changes**
+  - adding comments about usage and default value - [be0483c]( https://github.com/royriojas/esformatter-jsx/commit/be0483c ), [Samvel Avanesov](https://github.com/Samvel Avanesov), 25/04/2016 16:32:11
+
+    
+  - specs - [9103f97]( https://github.com/royriojas/esformatter-jsx/commit/9103f97 ), [Samvel Avanesov](https://github.com/Samvel Avanesov), 24/04/2016 17:05:44
+
+    
+  - adding tests to no-space before closing tag - [dceed38]( https://github.com/royriojas/esformatter-jsx/commit/dceed38 ), [Samvel Avanesov](https://github.com/Samvel Avanesov), 24/04/2016 16:20:35
+
+    
+  - adding posibility to remove whitespace before closing tag in reformatted jsx elements - [76b0e75]( https://github.com/royriojas/esformatter-jsx/commit/76b0e75 ), [Samvel Avanesov](https://github.com/Samvel Avanesov), 23/04/2016 14:55:49
+
+    
+- **Build Scripts Changes**
+  - Add small demo example - [f3be6e0]( https://github.com/royriojas/esformatter-jsx/commit/f3be6e0 ), [Roy Riojas](https://github.com/Roy Riojas), 20/04/2016 14:43:02
+
+    
 ## v5.0.0
 - **Features**
   - Add `JSXExpressionsSingleLine` property to control if a jsxExpression will be put into a single line or multiple lines - [7f89846]( https://github.com/royriojas/esformatter-jsx/commit/7f89846 ), [Roy Riojas](https://github.com/Roy Riojas), 25/03/2016 20:40:47
