@@ -1,5 +1,5 @@
 {
-  "name": "esformatter-jsx",
+  "name": "esformatter-jsx-seavan",
   "version": "5.0.0",
   "description": "esformatter plugin: format javascript files that contain React JSX blocks",
   "repository": "royriojas/esformatter-jsx",

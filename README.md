@@ -27,6 +27,7 @@ If you're running into troubles with the formatting applied to your files I foun
     "JSXExpressionsSingleLine": true, // default true, if false the JSXExpressions might span several lines
     "alignWithFirstAttribute": false, // do not align attributes with the first tag
     "spaceInJSXExpressionContainers": " ", // default to one space. Make it empty if you don't like spaces between JSXExpressionContainers
+    "removeSpaceBeforeClosingJSX": false // default false. if true <React.Something /> => <React.Something/>
     "htmlOptions": {
       // put here the options for js-beautify.html
     }
