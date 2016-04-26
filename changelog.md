@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v5.0.2
+- **Bug Fixes**
+  - Fix the package name - [afc289e]( https://github.com/royriojas/esformatter-jsx/commit/afc289e ), [Roy Riojas](https://github.com/Roy Riojas), 26/04/2016 18:10:37
+
+    
 ## v5.0.1
 - **Bug Fixes**
   - test now verify code passes beautification and lint - [44fe581]( https://github.com/royriojas/esformatter-jsx/commit/44fe581 ), [Roy Riojas](https://github.com/Roy Riojas), 26/04/2016 18:07:06
