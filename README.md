@@ -73,7 +73,9 @@ var React = require('react');
 var Hello = React.createClass({
   render: function() {
     return (
-    <div className="hello-div">{this.props.message}</div>
+    <div className="hello-div">
+      {this.props.message}
+    </div>
     );
   }
 });
