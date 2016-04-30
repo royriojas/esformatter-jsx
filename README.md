@@ -55,9 +55,10 @@ var React = require('react');
 
 var Hello = React.createClass({
 render: function () {
-return <div
+return (<div
 
-className="hello-div">{this.props.message}</div>;
+className="hello-div">{this.props.message}</div>)
+;
 }
 });
 
@@ -71,7 +72,11 @@ var React = require('react');
 
 var Hello = React.createClass({
   render: function() {
-    return <div className="hello-div">{this.props.message}</div>;
+    return (
+    <div className="hello-div">
+      {this.props.message}
+    </div>
+    );
   }
 });
 
