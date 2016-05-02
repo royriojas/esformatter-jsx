@@ -1,5 +1,18 @@
 
 # esformatter-jsx - Changelog
+## v5.0.3
+- **Bug Fixes**
+  - Updated live demo. closes [#61](https://github.com/royriojas/esformatter-jsx/issues/61) - [59ab0b3]( https://github.com/royriojas/esformatter-jsx/commit/59ab0b3 ), [Roy Riojas](https://github.com/Roy Riojas), 02/05/2016 14:00:43
+
+    
+- **Other changes**
+  - Tried the example and forgot to put variable on new line - [5eae9bb]( https://github.com/royriojas/esformatter-jsx/commit/5eae9bb ), [Kevin Simper](https://github.com/Kevin Simper), 29/04/2016 22:50:19
+
+    
+  - Update with a better react component example - [d97f136]( https://github.com/royriojas/esformatter-jsx/commit/d97f136 ), [Kevin Simper](https://github.com/Kevin Simper), 29/04/2016 22:48:21
+
+    The component is always wrapped in two parenteses and 
+    this shows a more real example on how esformatter will format things.
 ## v5.0.2
 - **Bug Fixes**
   - Fix the package name - [afc289e]( https://github.com/royriojas/esformatter-jsx/commit/afc289e ), [Roy Riojas](https://github.com/Roy Riojas), 26/04/2016 18:10:37
