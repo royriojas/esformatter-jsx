@@ -6,7 +6,7 @@
 
 ## Demo
 
-Live demo: [esformatter-jsx](http://requirebin.com/embed?gist=0d67452e01754269660f)
+Live demo: [esformatter-jsx](http://royriojas.com/resources/esformatter-jsx/)
 
 ### Usage with [JSFMT](https://github.com/ionutvmi/sublime-jsfmt)
 
