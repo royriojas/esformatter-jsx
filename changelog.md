@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v5.0.4
+- **Bug Fixes**
+  - Avoid introducing ___AVOID_ESFMT_BUG_WITH_COMMENTS__ tokens. closes [#17](https://github.com/royriojas/esformatter-jsx/issues/17). - [0ac45fb]( https://github.com/royriojas/esformatter-jsx/commit/0ac45fb ), [Roy Riojas](https://github.com/Roy Riojas), 16/05/2016 10:29:51
+
+    
 ## v5.0.3
 - **Bug Fixes**
   - Updated live demo. closes [#61](https://github.com/royriojas/esformatter-jsx/issues/61) - [59ab0b3]( https://github.com/royriojas/esformatter-jsx/commit/59ab0b3 ), [Roy Riojas](https://github.com/Roy Riojas), 02/05/2016 14:00:43
