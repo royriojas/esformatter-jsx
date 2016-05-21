@@ -8,7 +8,7 @@ var files = fs.readdirSync( './entry/' );
 
 files.forEach( function ( file ) {
   var codeStr = fs.readFileSync( './entry/' + file ).toString();
-  var formattedCode = esformatter.format( codeStr, {
+  var options = {
     'whiteSpace': {
       'value': ' ',
       'removeTrailing': 1,
@@ -35,8 +35,13 @@ files.forEach( function ( file ) {
         'preserve_newlines': true
       }
     }
-  } );
+  };
+  var formattedCode = esformatter.format( codeStr, options );
 
   fs.writeFileSync( './result/' + path.basename( file ), formattedCode );
 
+  var reformattedCode = esformatter.format( formattedCode, options );
+  if (formattedCode !== reformattedCode) {
+    throw new Error( 'Expected ' + file + ' to reformat to the same result' );
+  }
 } );
