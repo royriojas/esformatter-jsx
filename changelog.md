@@ -1,5 +1,14 @@
 
 # esformatter-jsx - Changelog
+## v5.0.5
+- **Bug Fixes**
+  - Do not break template literals - [2811ca6]( https://github.com/royriojas/esformatter-jsx/commit/2811ca6 ), [Roy Riojas](https://github.com/Roy Riojas), 23/05/2016 04:37:38
+
+    
+- **Other changes**
+  - Reformat within demo to ensure equal results - [dcf9295]( https://github.com/royriojas/esformatter-jsx/commit/dcf9295 ), [Cameron Knight](https://github.com/Cameron Knight), 19/05/2016 19:53:09
+
+    
 ## v5.0.4
 - **Bug Fixes**
   - Avoid introducing ___AVOID_ESFMT_BUG_WITH_COMMENTS__ tokens. closes [#17](https://github.com/royriojas/esformatter-jsx/issues/17). - [0ac45fb]( https://github.com/royriojas/esformatter-jsx/commit/0ac45fb ), [Roy Riojas](https://github.com/Roy Riojas), 16/05/2016 10:29:51
