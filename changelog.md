@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v5.0.6
+- **Build Scripts Changes**
+  - update to latest esformatter - [0e926db]( https://github.com/royriojas/esformatter-jsx/commit/0e926db ), [Roy Riojas](https://github.com/Roy Riojas), 23/05/2016 04:41:20
+
+    
 ## v5.0.5
 - **Bug Fixes**
   - Do not break template literals - [2811ca6]( https://github.com/royriojas/esformatter-jsx/commit/2811ca6 ), [Roy Riojas](https://github.com/Roy Riojas), 23/05/2016 04:37:38
