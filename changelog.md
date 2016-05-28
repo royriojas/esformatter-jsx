@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v6.0.0
+- **Bug Fixes**
+  - closes [#73](https://github.com/royriojas/esformatter-jsx/issues/73). Support decorators on same line - [33b17e7]( https://github.com/royriojas/esformatter-jsx/commit/33b17e7 ), [Roy Riojas](https://github.com/Roy Riojas), 28/05/2016 00:58:56
+
+    
 ## v5.0.6
 - **Build Scripts Changes**
   - update to latest esformatter - [0e926db]( https://github.com/royriojas/esformatter-jsx/commit/0e926db ), [Roy Riojas](https://github.com/Roy Riojas), 23/05/2016 04:41:20
