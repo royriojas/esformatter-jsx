@@ -3,12 +3,15 @@ const from = {};
 
 export /* from */ { some2, from };
 
-export /*from*/ const some = 1;
+export /*from*/
+const some = 1;
 export /* from */ { abc, bcd }
-/* from */ from /* from */ 'some-file'; /* from */ // some comment from john
+/* from */ from /* from */
+'some-file'; /* from */ // some comment from john
 
 export /* from */ edfg
-/* from */ from /* from */ 'some-file'; /* from */ // some comment from john
+/* from */ from /* from */
+'some-file'; /* from */ // some comment from john
 
 export * as some from 'here';
 

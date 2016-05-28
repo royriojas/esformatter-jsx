@@ -62,7 +62,7 @@
   "devDependencies": {
     "changelogx": "^1.0.18",
     "esbeautifier": "^3.2.0",
-    "esformatter": "^0.9.3",
+    "esformatter": "^0.9.4",
     "eslinter": "^3.2.0",
     "istanbul": "^0.3.17",
     "mocha-runner": "^1.1.2",
