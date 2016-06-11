@@ -8,5 +8,8 @@
       "max_preserve_newlines": 0,
       "preserve_newlines": true
     }
+  },
+  "indent": {
+    "alignComments": false
   }
 }

@@ -27,8 +27,7 @@ export default class CounterButton extends Component {
     return 3;
   }
 
-  async function() {
-  }
+  async function() {}
 
   @autobind
   @injectProps

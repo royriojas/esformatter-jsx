@@ -57,12 +57,15 @@
     "esformatter-ignore": "^0.1.3",
     "extend": "^2.0.1",
     "fresh-falafel": "^1.2.0",
-    "js-beautify": "^1.5.10"
+    "js-beautify": "^1.6.3"
   },
   "devDependencies": {
+    "chalk": "^1.1.3",
     "changelogx": "^1.0.18",
+    "colors": "^1.1.2",
+    "diff": "^2.2.3",
     "esbeautifier": "^3.2.0",
-    "esformatter": "^0.9.4",
+    "esformatter": "^0.9.5",
     "eslinter": "^3.2.0",
     "istanbul": "^0.3.17",
     "mocha-runner": "^1.1.2",
