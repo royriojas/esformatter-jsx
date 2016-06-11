@@ -1,5 +1,14 @@
 
 # esformatter-jsx - Changelog
+## v6.1.0
+- **Bug Fixes**
+  - Fix for Bug-78. closes [#78](https://github.com/royriojas/esformatter-jsx/issues/78) - [1deb394]( https://github.com/royriojas/esformatter-jsx/commit/1deb394 ), [Roy Riojas](https://github.com/Roy Riojas), 11/06/2016 05:14:02
+
+    Removed hack to align comments. use:
+    
+    indent.alignComments=false as suggested
+    https://github.com/millermedeiros/esformatter/issues/325
+    
 ## v6.0.0
 - **Bug Fixes**
   - closes [#73](https://github.com/royriojas/esformatter-jsx/issues/73). Support decorators on same line - [33b17e7]( https://github.com/royriojas/esformatter-jsx/commit/33b17e7 ), [Roy Riojas](https://github.com/Roy Riojas), 28/05/2016 00:58:56
