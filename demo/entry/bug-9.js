@@ -11,6 +11,6 @@ export default class Example {
 
   @someDecotator var2;
 static v;
-static v = { a, b, c}
+static v = { a, b, c};
 
 }

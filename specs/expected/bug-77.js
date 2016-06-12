@@ -4,10 +4,10 @@
 export default class Example {
   var1;
   @readonly
-  variable = 2
+  variable = 2;
 
   @readonly(true)
-  variable3 = 3
+  variable3 = 3;
 
   @someDecotator var2;
   static v;
@@ -15,6 +15,6 @@ export default class Example {
     a,
     b,
     c
-  }
+  };
 
 }
