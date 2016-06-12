@@ -66,6 +66,7 @@
     "diff": "^2.2.3",
     "esbeautifier": "^3.2.0",
     "esformatter": "^0.9.5",
+    "esformatter-quotes": "^1.1.0",
     "eslinter": "^3.2.0",
     "istanbul": "^0.3.17",
     "mkdirp": "^0.5.1",
