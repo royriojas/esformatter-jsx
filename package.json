@@ -68,6 +68,7 @@
     "esformatter": "^0.9.5",
     "eslinter": "^3.2.0",
     "istanbul": "^0.3.17",
+    "mkdirp": "^0.5.1",
     "mocha-runner": "^1.1.2",
     "precommit": "^1.2.0",
     "prepush": "^3.1.8",

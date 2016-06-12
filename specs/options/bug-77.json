@@ -1,0 +1,8 @@
+{
+  "jsx": {
+    "attrsOnSameLineAsTag": false,
+    "maxAttrsOnTag": 1,
+    "firstAttributeOnSameLine": false,
+    "alignWithFirstAttribute": false
+  }
+}

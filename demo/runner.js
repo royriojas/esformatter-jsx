@@ -1,7 +1,8 @@
 var esformatter = require( 'esformatter' );
 esformatter.register( require( '../lib/plugin' ) );
-var chalk = require('chalk');
+var chalk = require( 'chalk' );
 var fs = require( 'fs' );
+var mkdirp = require( 'mkdirp' );
 var path = require( 'path' );
 var jsdiff = require('diff');
 
@@ -10,16 +11,17 @@ var files = fs.readdirSync( './entry/' );
 files.forEach( function ( file ) {
   var codeStr = fs.readFileSync( './entry/' + file ).toString();
   var options = {
-  "jsx": {
-    "attrsOnSameLineAsTag": false,
-    "maxAttrsOnTag": 1,
-    "firstAttributeOnSameLine": false,
-    "alignWithFirstAttribute": false
-  },
-
-};
+    "jsx": {
+      "attrsOnSameLineAsTag": false,
+      "maxAttrsOnTag": 1,
+      "firstAttributeOnSameLine": false,
+      "alignWithFirstAttribute": false
+    }
+  };
 
   var formattedCode = esformatter.format( codeStr, options );
+
+  mkdirp.sync('./result/');
 
   fs.writeFileSync( './result/' + path.basename( file ), formattedCode );
 
@@ -38,4 +40,5 @@ files.forEach( function ( file ) {
 
     throw new Error( 'Expected ' + file + ' to reformat to the same result' + '\n\n' + parts.join('') );
   }
+  console.log(formattedCode);
 } );
