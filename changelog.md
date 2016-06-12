@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v6.1.1
+- **Bug Fixes**
+  - closes [#77](https://github.com/royriojas/esformatter-jsx/issues/77). Support decorators with parameters - [6f84d29]( https://github.com/royriojas/esformatter-jsx/commit/6f84d29 ), [Roy Riojas](https://github.com/Roy Riojas), 12/06/2016 03:09:38
+
+    
 ## v6.1.0
 - **Bug Fixes**
   - Fix for Bug-78. closes [#78](https://github.com/royriojas/esformatter-jsx/issues/78) - [1deb394]( https://github.com/royriojas/esformatter-jsx/commit/1deb394 ), [Roy Riojas](https://github.com/Roy Riojas), 11/06/2016 05:14:02
