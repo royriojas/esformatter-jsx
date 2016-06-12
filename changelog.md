@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v7.0.0
+- **Bug Fixes**
+  - closes [#76](https://github.com/royriojas/esformatter-jsx/issues/76). don't replace jsxElements on `stringBefore` hook - [d8c4bf8]( https://github.com/royriojas/esformatter-jsx/commit/d8c4bf8 ), [Roy Riojas](https://github.com/Roy Riojas), 12/06/2016 04:33:20
+
+    
 ## v6.1.2
 - **Bug Fixes**
   - proper fix for [#77](https://github.com/royriojas/esformatter-jsx/issues/77). Don't forget to add semicolons if they were there - [d9c29c0]( https://github.com/royriojas/esformatter-jsx/commit/d9c29c0 ), [Roy Riojas](https://github.com/Roy Riojas), 12/06/2016 03:26:09
