@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v7.0.1
+- **Other changes**
+  - Replace string like placeholder with variable - [edd48ca]( https://github.com/royriojas/esformatter-jsx/commit/edd48ca ), [webcarrot](https://github.com/webcarrot), 22/06/2016 10:58:59
+
+    See issue: https://github.com/millermedeiros/esformatter-quotes/issues/16
 ## v7.0.0
 - **Bug Fixes**
   - closes [#76](https://github.com/royriojas/esformatter-jsx/issues/76). don't replace jsxElements on `stringBefore` hook - [d8c4bf8]( https://github.com/royriojas/esformatter-jsx/commit/d8c4bf8 ), [Roy Riojas](https://github.com/Roy Riojas), 12/06/2016 04:33:20
