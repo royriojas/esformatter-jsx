@@ -1,5 +1,16 @@
 
 # esformatter-jsx - Changelog
+## v7.1.0
+- **Other changes**
+  - fix for bug34 failure - [86bf05a]( https://github.com/royriojas/esformatter-jsx/commit/86bf05a ), [Sam Thompson](https://github.com/Sam Thompson), 22/10/2016 12:18:23
+
+    
+  - Added unit test, beautified format-jsx.jsx - [8ae3530]( https://github.com/royriojas/esformatter-jsx/commit/8ae3530 ), [Sam Thompson](https://github.com/Sam Thompson), 22/10/2016 12:07:28
+
+    
+  - closingTagOnNewLine added - [5aba419]( https://github.com/royriojas/esformatter-jsx/commit/5aba419 ), [Sam Thompson](https://github.com/Sam Thompson), 13/10/2016 18:06:29
+
+    
 ## v7.0.1
 - **Other changes**
   - Replace string like placeholder with variable - [edd48ca]( https://github.com/royriojas/esformatter-jsx/commit/edd48ca ), [webcarrot](https://github.com/webcarrot), 22/06/2016 10:58:59
