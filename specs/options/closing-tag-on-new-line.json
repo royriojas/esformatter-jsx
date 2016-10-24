@@ -1,0 +1,9 @@
+{
+  "jsx": {
+    "alignWithFirstAttribute": false,
+    "attrsOnSameLineAsTag": false,
+    "firstAttributeOnSameLine": false,
+    "formatJSX": true,
+    "closingTagOnNewLine": true
+  }
+}

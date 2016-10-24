@@ -13,7 +13,7 @@ export /* from */ edfg
 /* from */ from /* from */
 'some-file'; /* from */ // some comment from john
 
-export * as some from 'here';
+export * as some3 from 'here';
 
 export class myClass {
   execute() {
