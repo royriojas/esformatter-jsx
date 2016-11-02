@@ -1,5 +1,14 @@
 
 # esformatter-jsx - Changelog
+## v7.2.0
+- **Build Scripts Changes**
+  - Fix [#89](https://github.com/royriojas/esformatter-jsx/issues/89) - Update Babylon - [46d14ff]( https://github.com/royriojas/esformatter-jsx/commit/46d14ff ), [Roy Riojas](https://github.com/Roy Riojas), 02/11/2016 13:38:39
+
+    
+- **Other changes**
+  - Update README.md - [d189083]( https://github.com/royriojas/esformatter-jsx/commit/d189083 ), [Edan Edison](https://github.com/Edan Edison), 02/11/2016 10:58:25
+
+    Missing comma at end of line. Copying and pasting into sublime caused an error message. Simples ;)
 ## v7.1.0
 - **Other changes**
   - fix for bug34 failure - [86bf05a]( https://github.com/royriojas/esformatter-jsx/commit/86bf05a ), [Sam Thompson](https://github.com/Sam Thompson), 22/10/2016 12:18:23
