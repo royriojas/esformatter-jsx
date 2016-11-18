@@ -56,8 +56,7 @@
     "babylon": "6.13.1",
     "esformatter-ignore": "^0.1.3",
     "extend": "^2.0.1",
-    "js-beautify": "^1.6.3",
-    "object-keys": "^1.0.11"
+    "js-beautify": "^1.6.3"
   },
   "devDependencies": {
     "chalk": "^1.1.3",
