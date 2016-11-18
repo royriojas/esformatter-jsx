@@ -56,7 +56,6 @@
     "babylon": "6.13.1",
     "esformatter-ignore": "^0.1.3",
     "extend": "^2.0.1",
-    "fresh-falafel": "^1.2.0",
     "js-beautify": "^1.6.3"
   },
   "devDependencies": {
