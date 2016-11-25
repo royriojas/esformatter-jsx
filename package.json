@@ -53,10 +53,10 @@
   ],
   "peerDependencies": {},
   "dependencies": {
-    "babylon": "6.13.1",
+    "babylon": "6.14.1",
     "esformatter-ignore": "^0.1.3",
-    "extend": "^2.0.1",
-    "js-beautify": "^1.6.3"
+    "extend": "3.0.0",
+    "js-beautify": "1.6.4"
   },
   "devDependencies": {
     "chalk": "^1.1.3",
