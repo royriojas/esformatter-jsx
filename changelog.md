@@ -1,5 +1,29 @@
 
 # esformatter-jsx - Changelog
+## v7.3.0
+- **Build Scripts Changes**
+  - upgrade deps - [4c07f5a]( https://github.com/royriojas/esformatter-jsx/commit/4c07f5a ), [Roy Riojas](https://github.com/Roy Riojas), 24/11/2016 23:47:31
+
+    
+- **Other changes**
+  - Remove `object-keys`. - [b5338c3]( https://github.com/royriojas/esformatter-jsx/commit/b5338c3 ), [Mat Garcia](https://github.com/Mat Garcia), 18/11/2016 17:18:13
+
+    
+  - Beautify again. - [63af226]( https://github.com/royriojas/esformatter-jsx/commit/63af226 ), [Mat Garcia](https://github.com/Mat Garcia), 18/11/2016 14:44:29
+
+    
+  - Beautify. - [9da80c3]( https://github.com/royriojas/esformatter-jsx/commit/9da80c3 ), [Mat Garcia](https://github.com/Mat Garcia), 18/11/2016 14:36:26
+
+    
+  - Beautify. - [21817c3]( https://github.com/royriojas/esformatter-jsx/commit/21817c3 ), [Mat Garcia](https://github.com/Mat Garcia), 18/11/2016 14:12:10
+
+    
+  - Delete yarn.lock - [fc2f46b]( https://github.com/royriojas/esformatter-jsx/commit/fc2f46b ), [wtgtybhertgeghgtwtg](https://github.com/wtgtybhertgeghgtwtg), 17/11/2016 12:46:54
+
+    
+  - Inline `falafel`. - [8c2c7bc]( https://github.com/royriojas/esformatter-jsx/commit/8c2c7bc ), [Mat Garcia](https://github.com/Mat Garcia), 17/11/2016 12:46:07
+
+    
 ## v7.2.0
 - **Build Scripts Changes**
   - Fix [#89](https://github.com/royriojas/esformatter-jsx/issues/89) - Update Babylon - [46d14ff]( https://github.com/royriojas/esformatter-jsx/commit/46d14ff ), [Roy Riojas](https://github.com/Roy Riojas), 02/11/2016 13:38:39
