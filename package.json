@@ -1,6 +1,6 @@
 {
   "name": "esformatter-jsx",
-  "version": "7.3.1",
+  "version": "7.3.2",
   "description": "esformatter plugin: format javascript files that contain React JSX Elements",
   "repository": "royriojas/esformatter-jsx",
   "license": "MIT",
