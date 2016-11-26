@@ -1,5 +1,10 @@
 
 # esformatter-jsx - Changelog
+## v7.3.2
+- **Documentation**
+  - Change JSX Blocks to JSXElements - [e5b19bb]( https://github.com/royriojas/esformatter-jsx/commit/e5b19bb ), [Roy Riojas](https://github.com/Roy Riojas), 25/11/2016 23:57:12
+
+    
 ## v7.3.0
 - **Build Scripts Changes**
   - upgrade deps - [4c07f5a]( https://github.com/royriojas/esformatter-jsx/commit/4c07f5a ), [Roy Riojas](https://github.com/Roy Riojas), 24/11/2016 23:47:31
