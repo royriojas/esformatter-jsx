@@ -1,9 +1,5 @@
-'use strict';
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-var opts = require('./parser-options');
-var babylon = require('babylon');
+const opts = require('./parser-options');
+const babylon = require('babylon');
 
 function insertHelpers(node, parent, chunks) {
   node.parent = parent;
@@ -12,48 +8,46 @@ function insertHelpers(node, parent, chunks) {
   };
   function update(s) {
     chunks[node.start] = s;
-    for (var i = node.start + 1; i < node.end; ++i) {
+    for (let i = node.start + 1; i < node.end; ++i) {
       chunks[i] = '';
     }
   }
-  if (node.update && _typeof(node.update) === 'object') {
-    (function () {
-      var prev = node.update;
-      Object.keys(prev).forEach(function (key) {
-        update[key] = prev[key];
-      });
-    })();
+  if (node.update && typeof node.update === 'object') {
+    const prev = node.update;
+    Object.keys(prev).forEach((key) => {
+      update[key] = prev[key];
+    });
   }
   node.update = update;
 }
 
 module.exports = function falafelHelper(str, cb) {
   // module.exports = function (src, opts, fn) {
-  if (str && (typeof str === 'undefined' ? 'undefined' : _typeof(str)) === 'object' && str.constructor.name === 'Buffer') {
+  if (str && typeof str === 'object' && str.constructor.name === 'Buffer') {
     str = str.toString();
   }
   if (typeof str !== 'string') {
     str = String(str);
   }
-  var ast = babylon.parse(str, opts);
-  var result = {
+  const ast = babylon.parse(str, opts);
+  const result = {
     chunks: str.split(''),
-    inspect: function inspect() {
+    inspect() {
       return result.toString();
     },
-    toString: function toString() {
+    toString() {
       return result.chunks.join('');
-    }
+    },
   };
   function walk(node, parent) {
     insertHelpers(node, parent, result.chunks);
-    Object.keys(node).forEach(function (key) {
+    Object.keys(node).forEach((key) => {
       if (key === 'parent') {
         return;
       }
-      var child = node[key];
+      const child = node[key];
       if (Array.isArray(child)) {
-        child.forEach(function (c) {
+        child.forEach((c) => {
           if (c && typeof c.type === 'string') {
             walk(c, node);
           }

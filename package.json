@@ -8,39 +8,38 @@
     "name": "Roy Riojas",
     "url": "http://royriojas.com"
   },
-  "main": "index.js",
+  "main": "lib/plugin.js",
   "files": [
-    "index.js",
     "lib/"
   ],
   "engines": {
     "node": ">=0.10.0"
   },
   "prepush": [
-    "npm run check"
+    "npm run test"
   ],
   "precommit": [
-    "npm run check"
+    "npm run test"
   ],
   "scripts": {
-    "beautify": "esbeautifier 'index.js' 'lib/**/*.js' 'specs/**/*.spec.js'",
-    "beautify-check": "esbeautifier -k 'index.js' 'lib/**/*.js' 'specs/**/*.spec.js'",
-    "eslint": "eslinter 'index.js' 'lib/**/*.js' 'specs/**/*.spec.js'",
-    "test": "npm run verify && mocha-runner 'specs/**/*.spec.js'",
+    "autofix": "npm run eslint -- --fix",
+    "_lint": "eslint --cache --cache-location='.cache/' -f 'node_modules/eslint-friendly-formatter' ",
+    "eslint": "npm run _lint -- 'src/**/*.js' 'specs/**/*.spec.js' ",
+    "test": "npm run verify && babel-node node_modules/.bin/mocha-runner 'specs/**/*.spec.js'",
     "cover": "istanbul cover -x 'specs/**/*.spec.js' mocha-runner 'specs/**/*.spec.js' html text-summary",
-    "watch": "npm run cover && watch-spawn -p 'specs/**/*.spec.js' -p 'index.js' -p  npm run cover",
-    "lint": "npm run beautify && npm run eslint && npm test",
-    "verify": "npm run beautify-check && npm run eslint",
-    "check": "npm test",
+    "watch": "npm run cover && watch-spawn -p 'specs/**/*.spec.js' npm run cover",
+    "verify": "npm run eslint",
     "changelog": "changelogx -f markdown -o ./changelog.md",
     "do-changelog": "npm run changelog && git add ./changelog.md && git commit -m 'DOC: Generate changelog' --no-verify",
     "install-hooks": "prepush install && changelogx install-hook && precommit install",
-    "pre-v": "npm run check",
+    "pre-v": "npm run test",
     "post-v": "npm run do-changelog && git push --no-verify && git push --tags --no-verify",
     "bump-major": "npm run pre-v && npm version major -m 'BLD: Release v%s' && npm run post-v",
     "bump-minor": "npm run pre-v && npm version minor -m 'BLD: Release v%s' && npm run post-v",
     "bump-patch": "npm run pre-v && npm version patch -m 'BLD: Release v%s' && npm run post-v",
-    "exec-demo": "cd demo && node runner.js"
+    "exec-demo": "cd demo && babel-node runner.js",
+    "prepublish": "npm run build",
+    "build": "babel src/ -d lib/"
   },
   "keywords": [
     "esformatter-plugin",
@@ -59,6 +58,14 @@
     "js-beautify": "1.6.4"
   },
   "devDependencies": {
+    "babel-cli": "6.18.0",
+    "babel-eslint": "7.1.1",
+    "babel-plugin-add-module-exports": "0.2.1",
+    "babel-plugin-transform-decorators-legacy": "1.3.4",
+    "babel-polyfill": "6.16.0",
+    "babel-preset-es2015": "6.18.0",
+    "babel-preset-react": "6.16.0",
+    "babel-preset-stage-0": "6.16.0",
     "chalk": "^1.1.3",
     "changelogx": "^1.0.18",
     "colors": "^1.1.2",
@@ -66,7 +73,13 @@
     "esbeautifier": "^3.2.0",
     "esformatter": "^0.9.5",
     "esformatter-quotes": "^1.1.0",
-    "eslinter": "^3.2.0",
+    "eslint": "3.11.0",
+    "eslint-config-airbnb": "13.0.0",
+    "eslint-friendly-formatter": "2.0.6",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsx-a11y": "2.2.3",
+    "eslint-plugin-mocha": "4.7.0",
+    "eslint-plugin-react": "6.7.1",
     "istanbul": "^0.3.17",
     "mkdirp": "^0.5.1",
     "mocha-runner": "^1.1.2",

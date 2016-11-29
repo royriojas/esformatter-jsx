@@ -29,6 +29,7 @@ If you're running into troubles with the formatting applied to your files I foun
     "spaceInJSXExpressionContainers": " ", // default to one space. Make it empty if you don't like spaces between JSXExpressionContainers
     "removeSpaceBeforeClosingJSX": false, // default false. if true <React.Something /> => <React.Something/>
     "closingTagOnNewLine": false, // default false. if true attributes on multiple lines will close the tag on a new line
+    "JSXAttributeQuotes": "", // possible values "single" or "double". Leave it as empty string if you don't want to modify the attributes' quotes
     "htmlOptions": {
       // put here the options for js-beautify.html
     }

@@ -1,20 +1,18 @@
-'use strict';
-
-var extend = require('extend');
-var findParent = require('./find-parent');
-var falafel = require('./falafel-helper');
-var libFormat = require('./format-jsx');
-var ignore = require('esformatter-ignore');
-var unformatted = require('./default-unformatted');
+const extend = require('extend');
+const findParent = require('./find-parent');
+const falafel = require('./falafel-helper');
+const libFormat = require('./format-jsx');
+const ignore = require('esformatter-ignore');
+const unformatted = require('./default-unformatted');
 
 module.exports = {
-  setOptions: function setOptions(opts, esformatter) {
-    var me = this;
-    opts = opts || {};
+  setOptions(opts, esformatter) {
+    const me = this;
+    opts = opts || { };
     me.opts = opts;
     me._esformatter = esformatter;
 
-    var jsxOptions = opts.jsx || {};
+    const jsxOptions = opts.jsx || { };
 
     me.jsxOptions = extend(true, {
       formatJSX: true,
@@ -24,13 +22,14 @@ module.exports = {
       alignWithFirstAttribute: true,
       JSXExpressionsSingleLine: true,
       formatJSXExpressions: true,
-      JSXAttributeQuotes: '' }, jsxOptions);
+      JSXAttributeQuotes: '', // empty means "as is"", 'single' or 'double' will use single or double quotes for JSX attributes
+    }, jsxOptions);
 
     if (me.jsxOptions.maxAttrsOnTag < 1) {
       me.jsxOptions.maxAttrsOnTag = 1;
     }
 
-    var htmlOptions = jsxOptions.htmlOptions || {};
+    const htmlOptions = jsxOptions.htmlOptions || { };
     me.htmlOptions = extend(true, {
       brace_style: 'collapse', //eslint-disable-line
       indent_char: ' ', //eslint-disable-line
@@ -39,52 +38,60 @@ module.exports = {
       max_preserve_newlines: 2, //eslint-disable-line
       preserve_newlines: true, //eslint-disable-line
       // indent_handlebars: true
-      unformatted: unformatted,
+      unformatted,
       wrap_line_length: 160 //eslint-disable-line
     }, htmlOptions);
   },
-  stringBefore: function stringBefore(code) {
-    var me = this;
+
+  stringBefore(code) {
+    const me = this;
     if (!me.jsxOptions.formatJSX) {
       return code;
     }
 
     me._ignore = me._ignore || [];
 
-    var _ignore = Object.create(ignore);
+    const _ignore = Object.create(ignore);
     me._ignore.push(_ignore);
 
     code = _ignore.stringBefore(code);
 
     me._templateLiterals = me._templateLiterals || [];
 
-    var templateLiterals = [];
+    const templateLiterals = [];
 
-    code = falafel(code, function (node) {
+    code = falafel(code, (node) => {
       if (node.type === 'ClassProperty') {
         if (node.value) {
-          var oldSource = node.source();
+          const oldSource = node.source();
 
-          var formattedProp = '' + (node.static ? 'static ' : '') + node.key.source() + ' = ' + node.value.source() + (oldSource.match(/;$/) ? ';' : '');
+          const formattedProp = `${node.static ? 'static ' : ''
+               }${node.key.source()  } = ${  node.value.source()
+               }${oldSource.match(/;$/) ? ';' : ''}`;
 
           node.update(formattedProp);
+
         }
       }
 
-      if (node.type === 'TemplateLiteral' && !findParent(node, 'JSXAttribute') && !findParent(node, 'TemplateLiteral')) {
+      if (node.type === 'TemplateLiteral' && (!findParent(node, 'JSXAttribute') && !findParent(node, 'TemplateLiteral'))) {
 
-        var idx = templateLiterals.length;
-        var replaceString = '__TEMPORARY_VARIABLE__PLACEHOLDER___NODE__' + idx + '_';
+        const idx = templateLiterals.length;
+        const replaceString = `__TEMPORARY_VARIABLE__PLACEHOLDER___NODE__${  idx  }_`;
 
         templateLiterals.push({
           code: node.source(),
-          replacedWith: replaceString
+          replacedWith: replaceString,
         });
 
         node.update(replaceString);
       }
 
-      if (node.type === 'ArrowFunctionExpression' || node.type === 'FunctionDeclaration' || node.type === 'ClassMethod' || node.type === 'FunctionExpression' || node.type === 'ObjectMethod') {
+      if (node.type === 'ArrowFunctionExpression'
+        || node.type === 'FunctionDeclaration'
+        || node.type === 'ClassMethod'
+        || node.type === 'FunctionExpression'
+        || node.type === 'ObjectMethod') {
 
         node.update(node.source().replace(/^async\s+function/, 'async function'));
         node.update(node.source().replace(/^async\s+\(\)/, 'async ()'));
@@ -92,76 +99,66 @@ module.exports = {
 
       if (node.type === 'Decorator') {
         if (node.parent.type !== 'ClassMethod' && node.parent.type !== 'ClassProperty') {
-          node.update(node.source().replace(/^\s*@/, '____decorator__at_sign___') + ';/*__decorator__semi__open*/\n/*__decorator__semi__end*/');
+          node.update(`${node.source().replace(/^\s*@/, '____decorator__at_sign___')  };/*__decorator__semi__open*/\n/*__decorator__semi__end*/`);
         }
       }
 
       if (node.type === 'SpreadProperty') {
-        var _source = node.source().replace(/^\s*\.\.\./, '____esfmt_spread_sign___:');
+        const _source = node.source().replace(/^\s*\.\.\./, '____esfmt_spread_sign___:');
         node.update(_source);
       }
+
     }).toString();
 
-    var response = libFormat.replaceJSXExpressionContainers(code);
+    const response = libFormat.replaceJSXExpressionContainers(code);
     me._jsxExpressionContainers = response.containers;
     me._templateLiterals.push(templateLiterals);
     return response.source;
   },
-  _restoreJSXElements: function _restoreJSXElements(source) {
-    var me = this;
-    var jsxElements = me.jsxElements.pop();
+  _restoreTemplateLiterals(source) {
+    const me = this;
 
-    jsxElements = jsxElements || [];
-
-    jsxElements.forEach(function (entry, idx) {
-      var container = entry.code;
-      var rx = new RegExp('<__ESFORMATTER__JSX_NODE_0_' + idx + '\\s\\/>');
-
-      // this is causing bug#13 using split/join fixed the issue
-      // source = source.replace( rx, container );
-      source = source.split(rx).join(container);
-    });
-    return source;
-  },
-  _restoreTemplateLiterals: function _restoreTemplateLiterals(source) {
-    var me = this;
-
-    var templateLiterals = me._templateLiterals.pop();
+    let templateLiterals = me._templateLiterals.pop();
     templateLiterals = templateLiterals || [];
 
-    templateLiterals.forEach(function (entry) {
-      var code = entry.code;
-      var replacedWith = entry.replacedWith;
+    templateLiterals.forEach((entry) => {
+      const code = entry.code;
+      const replacedWith = entry.replacedWith;
 
       source = source.split(replacedWith).join(code);
     });
 
     return source;
   },
-  stringAfter: function stringAfter(code) {
-    var me = this;
+  stringAfter(code) {
+    const me = this;
 
     if (!me.jsxOptions.formatJSX) {
       return code;
     }
 
-    var jsxOptions = me.jsxOptions;
+    const jsxOptions = me.jsxOptions;
 
-    code = libFormat.restoreJSXExpressionContainers(code, me._jsxExpressionContainers, jsxOptions.spaceInJSXExpressionContainers, jsxOptions.removeSpaceBeforeClosingJSX);
-    // code = me._restoreJSXElements( code );
+    code = libFormat.restoreJSXExpressionContainers(
+      code,
+      me._jsxExpressionContainers,
+      jsxOptions.spaceInJSXExpressionContainers,
+      jsxOptions.removeSpaceBeforeClosingJSX,
+    );
 
-    var htmlOptions = me.htmlOptions;
+    const htmlOptions = me.htmlOptions;
 
-    var formatter = libFormat.create(htmlOptions, jsxOptions, me.opts, me._esformatter);
+    const formatter = libFormat.create(htmlOptions, jsxOptions, me.opts, me._esformatter);
 
-    var ast = falafel(code, function (node) {
+    let ast = falafel(code, (node) => {
       if (node.type !== 'JSXElement') {
         return;
       }
-      var conditionalParent = findParent(node, 'ConditionalExpression');
+      const conditionalParent = findParent(node, 'ConditionalExpression');
       if (conditionalParent) {
-        var formatted = formatter.format(node);
+        const formatted = formatter.format(node);
         node.update(formatted);
+
       }
     });
 
@@ -170,7 +167,7 @@ module.exports = {
     // replace the spread operators
     code = code.replace(/____esfmt_spread_sign___\s*:\s*/g, '...');
 
-    ast = falafel(code, function (node) {
+    ast = falafel(code, (node) => {
       // support for ES7 Decorators
       if (node.type === 'CallExpression' && node.callee.source().indexOf('____decorator__at_sign___') > -1) {
         node.callee.update(node.callee.source().replace('____decorator__at_sign___', '@'));
@@ -182,7 +179,7 @@ module.exports = {
         return;
       }
 
-      var formatted = void 0;
+      let formatted;
       if (!findParent(node, 'JSXElement')) {
         formatted = formatter.format(node);
         node.update(formatted);
@@ -194,11 +191,11 @@ module.exports = {
     // this is to make sure all decorators comments were removed from the source
     code = code.replace(/;\s*\/\*__decorator__semi__open\*\/\n\s*\/\*__decorator__semi__end\*\//g, '');
 
-    var _ignore = me._ignore.pop();
+    const _ignore = me._ignore.pop();
 
     code = _ignore.stringAfter(code);
     code = me._restoreTemplateLiterals(code);
 
     return code;
-  }
+  },
 };

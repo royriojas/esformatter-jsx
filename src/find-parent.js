@@ -1,8 +1,6 @@
-"use strict";
-
 function matchAny(type, types) {
   types = types || [];
-  for (var i = 0, len = types.length; i < len; i++) {
+  for (let i = 0, len = types.length; i < len; i++) {
     if (type === types[i]) {
       return true;
     }
@@ -10,12 +8,9 @@ function matchAny(type, types) {
   return false;
 }
 
-module.exports = function findParent() {
-  for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-    args[_key] = arguments[_key];
-  }
+module.exports = function findParent(...args) {
 
-  var node = args.shift();
+  let node = args.shift();
 
   while (node.parent) {
     if (matchAny(node.parent.type, args)) {
