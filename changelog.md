@@ -1,5 +1,13 @@
 
 # esformatter-jsx - Changelog
+## v7.3.3
+- **Features**
+  - Add `JSXAttributeQuotes` option. Closes [#93](https://github.com/royriojas/esformatter-jsx/issues/93) - [ebbbc7c]( https://github.com/royriojas/esformatter-jsx/commit/ebbbc7c ), [Roy Riojas](https://github.com/Roy Riojas), 29/11/2016 21:20:27
+
+    `JSXAttributeQuotes` option will now control whether or not the quotes
+    of JSXAttributes should use `single` or `double` quotes. Leave it empty
+    to not change the quotes being used.
+    
 ## v7.3.2
 - **Documentation**
   - Change JSX Blocks to JSXElements - [e5b19bb]( https://github.com/royriojas/esformatter-jsx/commit/e5b19bb ), [Roy Riojas](https://github.com/Roy Riojas), 25/11/2016 23:57:12
