@@ -84,7 +84,7 @@ function restoreContainers(source, containers, space, removeSpace) {
     const column = entry.column;
     const rx = entry.jsxAttribute ?
       new RegExp(`['"]__JSXattribute_0_${  idx  }['"]`)
-      : new RegExp(`<__JSXExpression_0_${  idx  }\\s\\/>`);
+      : new RegExp(`<__JSXExpression_0_${  idx  }\\s*\\/>`);
 
     if (!entry.jsxAttribute) {
       container = addSpaces(container, column);
