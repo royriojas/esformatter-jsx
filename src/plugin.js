@@ -37,6 +37,7 @@ module.exports = {
       indent_size: 2, //eslint-disable-line
       max_preserve_newlines: 2, //eslint-disable-line
       preserve_newlines: true, //eslint-disable-line
+      voidElements: [],
       // indent_handlebars: true
       unformatted,
       wrap_line_length: 160 //eslint-disable-line

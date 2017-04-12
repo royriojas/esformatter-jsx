@@ -1,7 +1,7 @@
 const findParent = require('./find-parent');
 const falafel = require('./falafel-helper');
 const iterateReverse = require('./iterate-reverse');
-const beautifier = require('js-beautify');
+const beautifier = require('js-beautify-ejsx');
 const transformString = require('./transform-string');
 
 function replaceJSXExpressionContainer(source) {

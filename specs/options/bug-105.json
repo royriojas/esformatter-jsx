@@ -1,0 +1,29 @@
+{
+  "jsx": {
+    "formatJSX": true,
+    "attrsOnSameLineAsTag": false,
+    "maxAttrsOnTag": 1,
+    "firstAttributeOnSameLine": false,
+    "formatJSXExpressions": true,
+    "JSXExpressionsSingleLine": true,
+    "alignWithFirstAttribute": false,
+    "spaceInJSXExpressionContainers": " ",
+    "removeSpaceBeforeClosingJSX": false,
+    "closingTagOnNewLine": true,
+    "JSXAttributeQuotes": "",
+    "htmlOptions": {
+      "indent_size": 2,
+      "indent_level": 0,
+      "brace_style": "collapse",
+      "end_with_newline": false,
+      "indent_char": " ",
+      "indent_handlebars": true,
+      "indent_inner_html": false,
+      "indent_scripts": "normal",
+      "max_preserve_newlines": 0,
+      "preserve_newlines": true,
+      "e4x": true,
+      "wrap_line_length": 120
+    }
+  }
+}

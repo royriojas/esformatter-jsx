@@ -55,7 +55,8 @@
     "babylon": "6.14.1",
     "esformatter-ignore": "^0.1.3",
     "extend": "3.0.0",
-    "js-beautify": "1.6.12"
+    "js-beautify": "1.6.12",
+    "js-beautify-ejsx": "1.6.12"
   },
   "devDependencies": {
     "babel-cli": "6.18.0",

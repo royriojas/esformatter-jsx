@@ -16,11 +16,11 @@ var Hello = React.createClass({
                                         bsStyle={ 'default' }>
                                   <span className={ 'fa fa-times' }></span>
                                 </Button> }>
-           <Grid>
-             <Row>
-               <Col/>
-             </Row>
-           </Grid>
+             <Grid>
+               <Row>
+                 <Col/>
+               </Row>
+             </Grid>
            </Input>
   }
 });
