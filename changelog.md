@@ -1,5 +1,17 @@
 
 # esformatter-jsx - Changelog
+## v8.0.0
+- **Bug Fixes**
+  - closes [#105](https://github.com/royriojas/esformatter-jsx/issues/105). Properly indent 'col' and other void elements - [2c3ce51]( https://github.com/royriojas/esformatter-jsx/commit/2c3ce51 ), [Roy Riojas](https://github.com/Roy Riojas), 12/04/2017 18:31:07
+
+    
+- **Build Scripts Changes**
+  - Upgrade demo test - [5b60df1]( https://github.com/royriojas/esformatter-jsx/commit/5b60df1 ), [Roy Riojas](https://github.com/Roy Riojas), 12/04/2017 17:20:30
+
+    
+  - Upgrade js-beautify - [7fe60a9]( https://github.com/royriojas/esformatter-jsx/commit/7fe60a9 ), [Roy Riojas](https://github.com/Roy Riojas), 12/04/2017 17:19:48
+
+    
 ## v7.4.1
 - **Other changes**
   - Fix restoreContainers regexp - [e11cdb1]( https://github.com/royriojas/esformatter-jsx/commit/e11cdb1 ), [wkich](https://github.com/wkich), 11/01/2017 03:27:07
