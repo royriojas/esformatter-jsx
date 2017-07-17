@@ -1,5 +1,14 @@
 
 # esformatter-jsx - Changelog
+## v8.0.1
+- **Other changes**
+  - Also added a unit test for this fix - [53090eb]( https://github.com/royriojas/esformatter-jsx/commit/53090eb ), [theadriann](https://github.com/theadriann), 11/07/2017 01:57:16
+
+    
+  - Fixed decorators formatting bug [#74](https://github.com/royriojas/esformatter-jsx/issues/74) - [3fa6ab2]( https://github.com/royriojas/esformatter-jsx/commit/3fa6ab2 ), [theadriann](https://github.com/theadriann), 06/07/2017 02:09:11
+
+    Issue: https://github.com/royriojas/esformatter-jsx/issues/74
+    
 ## v8.0.0
 - **Bug Fixes**
   - closes [#105](https://github.com/royriojas/esformatter-jsx/issues/105). Properly indent 'col' and other void elements - [2c3ce51]( https://github.com/royriojas/esformatter-jsx/commit/2c3ce51 ), [Roy Riojas](https://github.com/Roy Riojas), 12/04/2017 18:31:07
