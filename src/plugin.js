@@ -190,7 +190,7 @@ module.exports = {
     code = ast.toString();
 
     // this is to make sure all decorators comments were removed from the source
-    code = code.replace(/;\s*\/\*__decorator__semi__open\*\/\n\s*\/\*__decorator__semi__end\*\//g, '');
+    code = code.replace(/;*\s*\/\*__decorator__semi__open\*\/\n\s*\/\*__decorator__semi__end\*\//g, '');
 
     const _ignore = me._ignore.pop();
 
